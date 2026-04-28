@@ -1,0 +1,84 @@
+\chapter{Results and Discussion}
+
+This chapter summarizes the observed outcomes of the internship initiatives and discusses business relevance, technical implications, and identified limitations.
+
+\section{Results of Decisioning Modernization}
+
+The modernization and automation of decisioning artifacts provided clear operational improvements:
+
+\begin{itemize}
+	\item Rule changes became pipeline-driven instead of manually compiled.
+	\item Artifact publication became standardized through Artifactory.
+	\item Versioning improved traceability and rollback readiness.
+	\item Consolidation reduced complexity caused by fragmented repositories.
+\end{itemize}
+
+\textbf{Discussion:} The primary gain is not only speed but reliability under repeated releases. In regulated financial systems, consistent and auditable release behavior is as critical as low deployment latency.
+
+\section{Results of Stand-in Server Initiative}
+
+The stand-in server initiative established a practical path toward reducing external dependency.
+
+\begin{itemize}
+	\item Internal architecture for fallback decisioning was defined.
+	\item Technology stack decisions were aligned with enterprise compatibility.
+	\item Phased migration strategy reduced operational risk.
+\end{itemize}
+
+\textbf{Discussion:} The largest value is strategic. Even before full replacement, a reliable backup service improves continuity and strengthens operational resilience during third-party outages.
+
+\section{Results of Fraud Centralization Pipeline}
+
+The event-driven fraud architecture produced a structured mechanism for cross-team visibility.
+
+\begin{itemize}
+	\item Incoming fraud-check events can be streamed through Kafka.
+	\item Consumers update a centralized repository for blocked and investigation states.
+	\item Post-investigation updates close the lifecycle loop for consistent status tracking.
+\end{itemize}
+
+\textbf{Discussion:} A centralized fraud state reduces risk of contradictory decisions across banking units. This is particularly important in identity theft cases where delayed synchronization can cause severe compliance and financial impact.
+
+\section{Measurable Outcomes Summary}
+
+\begin{table}[h]
+	\centering
+	\small
+	\renewcommand{\arraystretch}{1.35}
+	\begin{tabular}{|p{0.17\textwidth}|p{0.17\textwidth}|p{0.21\textwidth}|p{0.21\textwidth}|p{0.17\textwidth}|}
+		\hline
+		\textbf{Initiative} & \textbf{KPI} & \textbf{Baseline Challenge} & \textbf{Post-Implementation Outcome} & \textbf{Business Impact} \\
+		\hline
+		Decisioning modernization & Rule release lead time; manual steps per release; artifact traceability rate & Manual rule compile and publish process with fragmented ownership & Push-triggered automated compile and publish path established; versioned \texttt{.adb} artifacts stored in Artifactory & Faster policy rollout and stronger audit readiness \\
+		\hline
+		Stand-in decision server & Internal decision coverage (\%); third-party dependency ratio; continuity readiness score & High external dependency for cloud/local third-party engines and associated recurring cost & In-house backup architecture defined (Spring Boot + React/TS) with phased adoption strategy and parity-first rollout model & Improved resilience posture and long-term cost optimization path \\
+		\hline
+		Fraud centralization pipeline & Fraud state propagation latency; cross-team consistency rate; stale-status incidence & No unified repository for blocked/under-investigation transactions & Kafka producer-consumer flow with central repository updates and lifecycle status synchronization implemented & Faster fraud response and reduced contradictory decision risk \\
+		\hline
+	\end{tabular}
+	\caption{Measurable outcomes framework across internship initiatives.}
+\end{table}
+
+\textbf{Recommended KPI tracking formulas for deployment dashboards:}
+
+\begin{itemize}
+	\item \textbf{Rule Release Lead Time} = \textit{Artifact Published Timestamp} - \textit{Rule Commit Timestamp}
+	\item \textbf{Internal Decision Coverage (\%)} = $\frac{\mbox{Requests served by stand-in}}{\mbox{Total decision requests}} \times 100$
+	\item \textbf{Fraud Propagation Latency} = \textit{Central Repository Update Timestamp} - \textit{Fraud Event Publish Timestamp}
+	\item \textbf{Cross-Team Consistency Rate (\%)} = $\frac{\mbox{Decisions aligned with latest fraud status}}{\mbox{Total evaluated decisions}} \times 100$
+\end{itemize}
+
+\section{Limitations and Risks}
+
+Although the outcomes are positive, some limitations remain:
+
+\begin{itemize}
+	\item Pipeline reliability must be maintained to avoid build bottlenecks.
+	\item Stand-in service requires sustained parity verification against existing engines.
+	\item Kafka-based systems require disciplined handling of ordering, retries, and duplicates.
+	\item Data governance is critical for sensitive fraud records and lifecycle retention.
+\end{itemize}
+
+\section{Key Learnings from Discussion}
+
+The discussion across all workstreams highlights a common pattern: enterprise engineering success depends on combining automation, architecture discipline, and controlled rollout. High-quality software outcomes in banking are created when technical decisions are tied directly to business risk and compliance needs.

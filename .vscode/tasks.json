@@ -1,0 +1,31 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build End-Sem LaTeX Report",
+			"type": "shell",
+			"command": "latexmk",
+			"args": [
+				"-pdf",
+				"-interaction=nonstopmode",
+				"-synctex=1",
+				"Latex Report - Final/Report.tex"
+			],
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Build End-Sem LaTeX Report (pdflatex x2)",
+			"type": "shell",
+			"command": "pdflatex",
+			"args": [
+				"-interaction=nonstopmode",
+				"-synctex=1",
+				"-output-directory=Latex Report - Final",
+				"Latex Report - Final/Report.tex"
+			],
+			"isBackground": false,
+			"group": "build"
+		}
+	]
+}

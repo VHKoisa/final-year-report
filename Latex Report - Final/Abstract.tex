@@ -1,0 +1,15 @@
+% -------------------------------
+% Abstract
+% -------------------------------
+\newpage
+\begin{center}
+	\textbf{\Huge \underline{Abstract}} \\[1.5cm]	
+\end{center}
+
+This report presents the technical outcomes of my industrial internship at Wells Fargo, focused on modernization of decisioning systems, cost optimization of decision infrastructure, and real-time fraud data centralization. The first workstream addressed decommissioning and modernization of a retail credit decisioning platform by consolidating repositories, automating rule compilation to \texttt{.adb} artifacts, publishing artifacts to Artifactory, and introducing artifact versioning for traceability and controlled rollback. This significantly reduced manual effort and improved release reliability for business-driven rule changes.
+
+The second workstream explored an in-house local decision stand-in server as a strategic alternative to expensive third-party decision engines. A prototype architecture using Java Spring Boot and React with TypeScript was designed to support backup-first deployment, operational continuity during vendor outages, and gradual migration based on business confidence.
+
+The third workstream proposed and implemented the core design for a centralized fraud transaction repository using Kafka-based event streaming. Incoming fraud-check requests are published by producers, consumed by listeners, and persisted in a central repository with subsequent status updates after investigation. This architecture improves cross-team visibility and helps prevent inconsistent approval decisions during active identity theft scenarios.
+
+Overall, the internship demonstrates how event-driven integration, CI/CD automation, and architecture simplification can jointly improve speed, reliability, and governance in financial systems. The report also documents limitations, rollout considerations, and key learnings, including improved productivity through disciplined use of GitHub Copilot for code generation, documentation drafting, and iterative technical refinement.

@@ -1,0 +1,49 @@
+\chapter{Related Work}
+
+This chapter positions the internship work against common enterprise practices in decisioning and fraud systems.
+
+\section{Credit Decisioning Lifecycle in Enterprises}
+
+In many financial organizations, decisioning rules are authored by business policy teams and translated into executable rule artifacts by engineering teams. Legacy operational models often depend on manual packaging and controlled deployment windows. While these processes provide governance checkpoints, they become bottlenecks when rule updates are frequent.
+
+Modern practice emphasizes CI/CD-supported rule compilation, artifact repositories, and strict versioning to ensure reproducibility and rollback capability. The modernization work in this report aligns with this transition by automating conversion of rule updates into deployable \texttt{.adb} artifacts and publishing them through an auditable artifact pipeline.
+
+\section{Stand-in and Fallback Decision Services}
+
+Third-party decision engines are widely used because they offer mature capabilities and quick onboarding. However, dependence on external services introduces recurring cost and operational risk. A common resilience pattern in distributed systems is to maintain an internal fallback or stand-in service that can temporarily absorb traffic during external outages.
+
+Existing architectural strategies include:
+
+\begin{itemize}
+	\item Active-passive backup deployment.
+	\item Shadow evaluation for parity checks without user impact.
+	\item Gradual traffic shifting based on confidence metrics.
+\end{itemize}
+
+The stand-in server initiative in this internship adopts a similar backup-first approach, which enables risk-managed transition from vendor dependency to internal capability.
+
+\section{Event-Driven Fraud Data Synchronization}
+
+Fraud workflows demand low-latency data dissemination across many internal systems. Synchronous service chains can become fragile under scale and dependency failures. Event streaming platforms, such as Kafka, are therefore commonly adopted to decouple producers and consumers while maintaining high-throughput asynchronous processing.
+
+In fraud scenarios, event-driven architectures offer:
+
+\begin{itemize}
+	\item Near real-time propagation of fraud flags.
+	\item Easy integration of additional consumers without changing producers.
+	\item Better observability through topic lag and processing metrics.
+\end{itemize}
+
+At the same time, they require careful treatment of schema evolution, duplicate events, ordering guarantees, and idempotent consumption. These concerns are discussed later as part of limitations and future hardening.
+
+\section{Gap Addressed by This Internship Work}
+
+Based on the above context, the internship contributes by combining three complementary improvements in a single business domain:
+
+\begin{itemize}
+	\item Automation and governance of decisioning artifact lifecycle.
+	\item Cost and resilience strategy through an internal stand-in design.
+	\item Real-time fraud-state centralization through event-driven integration.
+\end{itemize}
+
+This integrated perspective is valuable because business outcomes in banking are shaped by system behavior across the full lifecycle, not by isolated module-level optimizations.

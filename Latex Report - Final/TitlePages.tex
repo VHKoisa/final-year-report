@@ -1,0 +1,106 @@
+% -------------------------------
+% Title Page
+% -------------------------------
+\begin{titlepage}
+	% Draw double border using TikZ
+	\begin{tikzpicture}[remember picture,overlay]
+		% Outer rectangle
+		\draw[line width=1pt]
+		([xshift=1cm,yshift=-1cm]current page.north west)
+		rectangle
+		([xshift=-1cm,yshift=1cm]current page.south east);
+		
+		% Inner rectangle
+		\draw[line width=1pt]
+		([xshift=1.1cm,yshift=-1.1cm]current page.north west)
+		rectangle
+		([xshift=-1.1cm,yshift=1.1cm]current page.south east);
+	\end{tikzpicture}
+	
+	\begin{center}
+		\textbf{Towards partial fulfillment for Undergraduate Degree Level Programme} \\[0.3cm]
+		\textbf{\Large Bachelor of Technology in Computer Science and Engineering} \\[1cm]
+		\textbf{\Large CS402 - INDUSTRIAL TRAINING} \\[1cm]
+		\textbf{\Large A Project Report on:} \textbf{\Large\ProjectTitle} \\[0.5cm]
+	\end{center}	
+	
+	\begin{center}
+		\textbf{Prepared by:} \\[0.5cm]
+		\renewcommand{\arraystretch}{1.5}
+		\begin{tabular}{|C{.3\textwidth}|C{.6\textwidth}|}
+			\hline
+			\textbf{Admission Number} & \textbf{Student Name} \\
+			\hline
+			\AdmissionNumberA & \StudentNameA  \\
+			\hline 	
+		\end{tabular}
+		\\[1cm]
+	\end{center}
+	
+	
+	\begin{center}
+		\textbf{Semester:} \SemesterNumber \\[0.2cm]
+		\textbf{Year:} \Year \\[0.2cm]
+		\textbf{Supervised by:} \SupervisorName \\[0.5cm]
+		\includegraphics[height=4.5cm,width=5cm]{svnit} \\[0.5cm]
+	\end{center}	
+	
+	
+	
+	\begin{center}
+		\textbf{DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING} \\[0.3cm]
+		\textbf{S. V. NATIONAL INSTITUTE OF TECHNOLOGY (NIT)} \\[0.3cm]
+		\textbf{SURAT - 395007 (GUJARAT, INDIA)}
+	\end{center}
+\end{titlepage}
+
+% -------------------------------
+% Student Declaration
+% -------------------------------
+\newpage
+\pagenumbering{roman}
+\begin{center}
+	\textbf{\Huge \underline{Student Declaration}} \\[1.5cm]	
+\end{center}
+
+This is to certify that the work described in this project report entitled \textbf{\ProjectTitle} has been actually carried out and implemented by me. Neither the source code therein, nor the content of the project report have been copied or downloaded from any other source. I understand that my result grade would be revoked if later it is found to be so. 
+
+\begin{center}
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{|C{.05\textwidth}|C{.15\textwidth}|C{.5\textwidth}|C{.2\textwidth}|}
+		\hline
+		\textbf{Sr. No.} & \textbf{Admission No.} & \textbf{Student Name} & \textbf{Signature of the Student} \\
+		\hline
+		1 & \AdmissionNumberA & \StudentNameA &  \\
+		\hline
+	\end{tabular}
+\end{center}
+
+% -------------------------------
+% Certificate
+% -------------------------------
+\newpage
+\begin{center}
+	\textbf{\Huge \underline{Certificate}} \\[1.5cm]	
+\end{center}
+
+This is to certify that the project report entitled \textbf{\ProjectTitle} is prepared and presented by:
+
+\begin{center}
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{|C{.05\textwidth}|C{.25\textwidth}|C{.6\textwidth}|}
+		\hline
+		\textbf{Sr. No.} & \textbf{Admission No.} & \textbf{Student Name} \\
+		\hline
+		1 & \AdmissionNumberA & \StudentNameA  \\
+		\hline
+	\end{tabular}
+\end{center}
+
+student of B. Tech. Computer Science and Engineering and the work is satisfactory. \\[2cm]
+
+\textbf{Signatures:} \\[2cm]
+\textbf{Supervisor} \hfill \textbf{Jury} \hfill \textbf{Head of Department}
+
+
+

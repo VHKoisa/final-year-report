@@ -1,0 +1,124 @@
+\chapter{Implementation}
+
+This chapter describes the technical implementation details of each internship workstream.
+
+\section{Workstream 1: Credit Decisioning Platform Modernization}
+
+\subsection{Initial State}
+
+The initial platform had multiple utility repositories and a manual process for compiling rule updates into \texttt{.adb} artifacts. This model created delay and introduced avoidable human dependency in the release chain.
+
+\subsection{Repository Consolidation}
+
+As part of modernization, utility repositories were merged into a central codebase where feasible. The consolidation reduced code scattering, simplified dependency management, and improved discoverability of rule-related components.
+
+\subsection{Automated Rule Build Pipeline}
+
+A CI-triggered build workflow was introduced with the following logic:
+
+\begin{enumerate}
+	\item Rule changes are committed and pushed.
+	\item Pipeline trigger starts automatic compilation.
+	\item Rules are compiled into deployable \texttt{.adb} artifacts.
+	\item Artifacts are validated and prepared for publishing.
+\end{enumerate}
+
+This transformed a manual operational step into a repeatable machine-driven process.
+
+\subsection{Artifact Publishing and Versioning}
+
+Compiled artifacts are published to Artifactory with controlled versioning. Versioning provides:
+
+\begin{itemize}
+	\item Historical traceability of deployed rule packages.
+	\item Rollback capability in case of regression.
+	\item Clear mapping between code revision and artifact revision.
+\end{itemize}
+
+\section{Workstream 2: In-house Decision Stand-in Server}
+
+\subsection{Architecture Selection}
+
+A prototype-ready architecture was selected:
+
+\begin{itemize}
+	\item Backend: Java Spring Boot for robust service development and integration.
+	\item Frontend: React + TypeScript for maintainable user-facing interfaces and internal operations tooling.
+\end{itemize}
+
+\subsection{Operational Role}
+
+The stand-in server is designed as a backup-first component. It can be used when third-party decision providers are unavailable, delayed, or under maintenance. This design supports business continuity while preserving a low-risk path for incremental adoption.
+
+\subsection{Migration Strategy}
+
+Implementation planning included a phased migration strategy:
+
+\begin{enumerate}
+	\item Enable passive readiness as contingency capability.
+	\item Execute parity testing with third-party decision outcomes.
+	\item Run controlled pilots in selected domains.
+	\item Gradually increase dependency on internal service as confidence grows.
+\end{enumerate}
+
+\section{Workstream 3: Fraud Central Repository with Kafka}
+
+\subsection{Problem-Driven Design}
+
+Fraud alerts from identity theft workflows require rapid propagation across bank systems. To avoid inconsistent decisions across teams, a central repository model was designed using asynchronous event processing.
+
+\subsection{Event Flow Implementation}
+
+The implemented logical flow is:
+
+\begin{enumerate}
+	\item A fraud-check transaction event is received by upstream systems.
+	\item Kafka producer publishes a standardized event to a topic.
+	\item Spring Boot Kafka listener consumes the event.
+	\item Consumer service writes/updates record in centralized repository.
+	\item Post-investigation status updates are consumed and persisted.
+\end{enumerate}
+
+\subsection{Core Design Considerations}
+
+To ensure production suitability, the implementation design includes:
+
+\begin{itemize}
+	\item Idempotent event handling to limit duplicate-processing effects.
+	\item Retry and dead-letter handling for transient failures.
+	\item Status lifecycle updates to maintain auditable decision history.
+	\item Monitoring hooks for consumer lag and processing health.
+\end{itemize}
+
+\section{Technology Stack Summary}
+
+\begin{table}[h]
+	\centering
+	\renewcommand{\arraystretch}{1.4}
+	\begin{tabular}{|C{.08\textwidth}|C{.32\textwidth}|C{.46\textwidth}|}
+		\hline
+		\textbf{No.} & \textbf{Technology} & \textbf{Purpose} \\
+		\hline
+		1 & Java Spring Boot & Backend services, integration APIs, Kafka listeners \\
+		\hline
+		2 & React + TypeScript & Frontend interface for stand-in decision service \\
+		\hline
+		3 & Kafka & Asynchronous event streaming for fraud workflows \\
+		\hline
+		4 & Artifactory & Versioned storage of compiled \texttt{.adb} artifacts \\
+		\hline
+		5 & CI Pipeline & Automated compile and publish lifecycle \\
+		\hline
+	\end{tabular}
+	\caption{Technology stack used across internship workstreams.}
+\end{table}
+
+\section{Implementation Limitations}
+
+Despite substantial progress, the following implementation limitations remain:
+
+\begin{itemize}
+	\item End-to-end enterprise rollout requires cross-team production approvals.
+	\item Stand-in service requires long-duration parity validation before critical migration.
+	\item Fraud pipeline requires deeper hardening for exactly-once semantics and advanced governance.
+\end{itemize}

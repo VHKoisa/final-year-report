@@ -1,0 +1,59 @@
+\chapter{Conclusions and Future Works}
+
+This internship at Wells Fargo provided practical exposure to enterprise-scale engineering where reliability, governance, and response speed are as important as feature delivery. Through the three workstreams, I contributed to decisioning modernization, cost-aware architecture strategy, and fraud data centralization.
+
+\section{Conclusions}
+
+The major conclusions are as follows:
+
+\begin{itemize}
+	\item Automating rule compilation and artifact publication substantially improves consistency and reduces manual operational risk.
+	\item Repository consolidation improves maintainability and lowers cognitive overhead for development teams.
+	\item In-house stand-in decisioning capability is a viable strategic direction for reducing long-term vendor dependency and improving service continuity.
+	\item Event-driven fraud centralization is essential for maintaining a unified risk view across teams and preventing contradictory decisions.
+\end{itemize}
+
+Overall, the internship demonstrated that sustainable impact comes from systems thinking: aligning architecture choices with business goals, compliance constraints, and operational realities.
+
+\section{Future Works}
+
+Future scope for this work includes:
+
+\begin{enumerate}
+	\item \textbf{Decisioning automation hardening}
+	\begin{itemize}
+		\item Add rule schema validation and policy quality gates before compilation.
+		\item Introduce approval-driven promotion flow across environments.
+	\end{itemize}
+
+	\item \textbf{Stand-in server productionization}
+	\begin{itemize}
+		\item Build parity dashboards comparing internal and third-party outcomes.
+		\item Execute phased traffic migration with rollback guardrails.
+	\end{itemize}
+
+	\item \textbf{Fraud pipeline resilience}
+	\begin{itemize}
+		\item Strengthen idempotency controls and event contract governance.
+		\item Add dead-letter queue analytics and lag-based alerting.
+	\end{itemize}
+\end{enumerate}
+
+\section{Personal Learning Outcomes}
+
+\subsection{Technical and Professional Learning}
+
+I learned to translate business pain points into implementable technical architecture, design migration paths with controlled risk, and evaluate solutions through enterprise non-functional requirements such as reliability, traceability, and scalability.
+
+\subsection{Learning to Use GitHub Copilot Better}
+
+During this internship, I improved how I use GitHub Copilot in practical engineering tasks:
+
+\begin{itemize}
+	\item I learned to write context-rich prompts so generated code better matches domain requirements.
+	\item I used Copilot to accelerate boilerplate, refactoring, and documentation drafting while keeping validation responsibility with myself.
+	\item I used iterative prompting to compare alternatives for readability, maintainability, and production safety.
+	\item I learned that Copilot is most effective as a productivity partner when paired with strong engineering judgment and testing discipline.
+\end{itemize}
+
+These learnings improved both development speed and communication quality during project execution.

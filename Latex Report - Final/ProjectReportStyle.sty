@@ -1,0 +1,42 @@
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{tocloft}
+\usepackage{graphicx}
+% Line spacing
+\onehalfspacing
+\usepackage{tikz}
+% Chapter formatting
+\titleformat{\chapter}[display]
+{\bfseries\Huge\centering}
+{\MakeUppercase{\chaptertitlename} \Huge\thechapter}
+{2ex}
+{\vspace{2ex}\filleft}
+[\vspace{2ex}]
+\usepackage{array} % for custom column types
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\setlength{\parindent}{0pt}
+\usepackage{lipsum} % for dummy text
+\usepackage{tocloft}
+
+% Optional: Customize dots
+\renewcommand{\cftdot}{.}          % Symbol for leaders (default is .)
+\renewcommand{\cftdotsep}{2}       % Distance between dots
+\renewcommand{\cftchapdotsep}{\cftdotsep} % Ensure chapters also use same spacing
+\renewcommand{\contentsname}{Table of Contents}
+
+%\usepackage{titlesec}
+\titleformat{\chapter}[display]
+{\raggedright\bfseries\Huge\fontsize{28pt}{28.8pt}}
+{\fontsize{75pt}{28.8pt}\thechapter}
+{5pt}{}[]
+
+\titleformat*{\section}{\Large\bfseries}
+\titleformat*{\subsection}{\large\bfseries}
+\titleformat*{\subsubsection}{\normalsize\bfseries}
+
+% Add vertical space between TOC entries
+\setlength{\cftbeforechapskip}{1.5em}   % space before chapters
+\setlength{\cftbeforesecskip}{0.8em}    % space before sections
+\setlength{\cftbeforesubsecskip}{0.5em} % space before subsections

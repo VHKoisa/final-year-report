@@ -1,0 +1,70 @@
+\chapter{Introduction}
+
+Financial institutions operate in highly regulated, high-volume environments where decision latency, operational resilience, and data consistency directly influence customer trust and business performance. During my internship at Wells Fargo, I worked on three high-impact engineering initiatives that addressed critical concerns in retail credit decisioning and fraud handling. These initiatives were selected because they sit at the intersection of software architecture, business continuity, and compliance-oriented governance.
+
+The first initiative focused on modernization of a credit decisioning platform where rule updates were dependent on manual compilation and fragmented repository management. The second initiative explored an internal decision stand-in server to reduce third-party dependence and recurring licensing costs while improving service continuity. The third initiative addressed a fraud operations gap by designing a near real-time centralized repository for blocked and under-investigation transactions using Kafka and Spring Boot.
+
+Taken together, these projects represent a practical transformation journey: from manually operated, distributed processes to automated, event-driven, and traceable enterprise workflows.
+
+\section{Motivation}
+
+The internship problem statements were motivated by real operational pain points observed in production-grade environments:
+
+\begin{itemize}
+	\item \textbf{Manual release bottlenecks:} business rule changes in credit decisioning required manual compilation and packaging, increasing delay and error probability.
+	\item \textbf{High external dependency costs:} third-party cloud and local licensed decision engines incurred substantial recurring expenses.
+	\item \textbf{Fraud data visibility gap:} absence of a centralized fraud repository created the risk of inconsistent decisions across internal teams.
+\end{itemize}
+
+In banking systems, these challenges are not isolated engineering inconveniences. They can impact policy rollout speed, fraud response time, and compliance readiness. Therefore, each initiative was approached with both technical correctness and business utility in mind.
+
+\section{Project Objectives}
+
+The end-sem internship work was structured around the following objectives:
+
+\begin{itemize}
+	\item Automate the rule compilation and artifact lifecycle for credit decisioning.
+	\item Reduce platform complexity through repository consolidation and standardized build flow.
+	\item Design an in-house stand-in decisioning server architecture for continuity and long-term cost optimization.
+	\item Implement an event-driven data pipeline for near real-time fraud transaction centralization.
+	\item Improve governance through versioning, traceability, and well-defined integration patterns.
+\end{itemize}
+
+\section{My Contribution}
+
+The specific contributions I delivered during the internship are summarized below:
+
+\begin{enumerate}
+	\item \textbf{Credit decisioning modernization:}
+	\begin{itemize}
+		\item Contributed to consolidation of utility repositories into a central platform.
+		\item Implemented CI-triggered automation for rule compilation into \texttt{.adb} files.
+		\item Added automated publishing to Artifactory with versioned artifacts.
+	\end{itemize}
+
+	\item \textbf{Decision stand-in server initiative:}
+	\begin{itemize}
+		\item Participated in architecture and prototype planning for a local stand-in service.
+		\item Defined stack using Java Spring Boot (backend) and React + TypeScript (frontend).
+		\item Proposed backup-first deployment strategy to reduce migration risk.
+	\end{itemize}
+
+	\item \textbf{Fraud centralization pipeline:}
+	\begin{itemize}
+		\item Designed Kafka producer-consumer flow for incoming fraud-check events.
+		\item Integrated listener-driven persistence into a centralized repository.
+		\item Structured post-investigation status update handling for lifecycle completeness.
+	\end{itemize}
+\end{enumerate}
+
+\section{Outline of the Report}
+
+The remainder of this report is organized as follows:
+
+\begin{itemize}
+	\item \textbf{Chapter 2: Related Work} discusses industry and architectural context relevant to decisioning automation, stand-in services, and event-driven fraud systems.
+	\item \textbf{Chapter 3: Methodology} presents the engineering approach, workstream decomposition, and evaluation criteria used during execution.
+	\item \textbf{Chapter 4: Implementation} provides the technical details of each initiative, including data flow and integration decisions.
+	\item \textbf{Chapter 5: Results and Discussion} analyzes business impact, technical outcomes, limitations, and operational considerations.
+	\item \textbf{Chapter 6: Conclusions and Future Works} concludes the report with major learnings, future roadmap, and reflections from the internship.
+\end{itemize}
