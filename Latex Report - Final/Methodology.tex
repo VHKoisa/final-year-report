@@ -4,87 +4,28 @@ The internship execution followed an engineering methodology that combined probl
 
 \section{Workstream Decomposition}
 
-To keep delivery structured and measurable, the complete internship scope was divided into three workstreams:
-
-\begin{enumerate}
-	\item Decisioning platform modernization and automation.
-	\item In-house stand-in decision server design.
-	\item Kafka-based fraud data centralization.
-\end{enumerate}
-
-Each workstream had a dedicated problem statement, target outcome, and identified operational constraints.
+To keep delivery structured and measurable, the complete internship scope was divided into three workstreams: decisioning platform modernization and automation, in-house stand-in decision server design, and Kafka-based fraud data centralization. Each workstream had a dedicated problem statement, target outcome, and identified operational constraints.
 
 \section{Requirement Gathering and Validation}
 
-Requirements were interpreted from actual process behavior and stakeholder expectations:
-
-\begin{itemize}
-	\item \textbf{Business teams:} faster and reliable policy/rule deployment.
-	\item \textbf{Engineering teams:} reduced manual operations and maintainable architecture.
-	\item \textbf{Operations and risk teams:} better traceability, resilience, and fraud response speed.
-\end{itemize}
-
-Validation was carried out through architecture reviews, implementation feasibility checks, and alignment with production-readiness principles.
+Requirements were interpreted from actual process behavior and stakeholder expectations. Business teams prioritized faster and reliable policy/rule deployment, engineering teams sought reduced manual operations and maintainable architecture, and operations and risk teams emphasized better traceability, resilience, and fraud response speed. Validation was carried out through architecture reviews, implementation feasibility checks, and alignment with production-readiness principles.
 
 \section{Method for Workstream 1: Decisioning Automation}
 
-The approach for the first workstream involved:
-
-\begin{itemize}
-	\item Identifying manual steps in the rule-to-artifact lifecycle.
-	\item Replacing manual compilation with CI-triggered build execution.
-	\item Standardizing artifact naming and versioning for \texttt{.adb} files.
-	\item Publishing artifacts to Artifactory for controlled downstream consumption.
-\end{itemize}
-
-This method targeted release reliability and auditable deployment flow.
+The approach for the first workstream involved identifying manual steps in the rule-to-artifact lifecycle, replacing manual compilation with CI-triggered build execution, standardizing artifact naming and versioning for \texttt{.adb} files, and publishing artifacts to Artifactory for controlled downstream consumption. This method targeted release reliability and auditable deployment flow.
 
 \section{Method for Workstream 2: Stand-in Server Strategy}
 
-The stand-in initiative used a phased methodology:
-
-\begin{itemize}
-	\item Define technical stack and service boundaries.
-	\item Design APIs and integration points compatible with existing consumers.
-	\item Plan fallback-first deployment instead of immediate full replacement.
-	\item Use parity and confidence checkpoints before traffic expansion.
-\end{itemize}
-
-This methodology reduces migration risk and enables evidence-based adoption.
+The stand-in initiative used a phased methodology that defined technical stack and service boundaries, designed APIs and integration points compatible with existing consumers, planned fallback-first deployment instead of immediate full replacement, and used parity and confidence checkpoints before traffic expansion. This methodology reduces migration risk and enables evidence-based adoption.
 
 \section{Method for Workstream 3: Fraud Centralization Pipeline}
 
-The fraud workflow method was event-driven:
-
-\begin{itemize}
-	\item Publish incoming fraud-check events via Kafka producers.
-	\item Consume events in central services through listeners.
-	\item Persist blocked or under-investigation status in a central repository.
-	\item Update the same record lifecycle after fraud review outcomes.
-\end{itemize}
-
-This method enables multi-team consistency and near real-time state propagation.
+The fraud workflow method was event-driven, involving publishing incoming fraud-check events via Kafka producers, consuming events in central services through listeners, persisting blocked or under-investigation status in a central repository, and updating the record lifecycle after fraud review outcomes. This method enables multi-team consistency and near real-time state propagation.
 
 \section{Evaluation Framework}
 
-The solutions were evaluated with practical enterprise criteria:
-
-\begin{itemize}
-	\item \textbf{Speed:} reduction in manual processing time for rule updates.
-	\item \textbf{Reliability:} consistency and repeatability of build and artifact release.
-	\item \textbf{Scalability:} ability to support additional producers/consumers and services.
-	\item \textbf{Governance:} traceability, version control, and operational audit readiness.
-	\item \textbf{Cost impact:} long-term reduction in third-party dependency exposure.
-\end{itemize}
+The solutions were evaluated with practical enterprise criteria. \textbf{Speed} was measured by reduction in manual processing time for rule updates. \textbf{Reliability} referred to consistency and repeatability of build and artifact release. \textbf{Scalability} assessed the ability to support additional producers/consumers and services. \textbf{Governance} emphasized traceability, version control, and operational audit readiness. Finally, \textbf{cost impact} evaluated long-term reduction in third-party dependency exposure.
 
 \section{Assumptions and Constraints}
 
-The following constraints influenced methodology decisions:
-
-\begin{itemize}
-	\item Existing enterprise systems could not be abruptly replaced.
-	\item Business approvals were necessary for traffic and policy-impacting changes.
-	\item Security, compliance, and reliability requirements had to be preserved throughout.
-\end{itemize}
-
-Therefore, incremental rollout and controlled integration were prioritized over disruptive migrations.
+The following constraints influenced methodology decisions: existing enterprise systems could not be abruptly replaced, business approvals were necessary for traffic and policy-impacting changes, and security, compliance, and reliability requirements had to be preserved throughout. Therefore, incremental rollout and controlled integration were prioritized over disruptive migrations.

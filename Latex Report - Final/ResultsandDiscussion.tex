@@ -4,40 +4,15 @@ This chapter summarizes the observed outcomes of the internship initiatives and 
 
 \section{Results of Decisioning Modernization}
 
-The modernization and automation of decisioning artifacts provided clear operational improvements:
-
-\begin{itemize}
-	\item Rule changes became pipeline-driven instead of manually compiled.
-	\item Artifact publication became standardized through Artifactory.
-	\item Versioning improved traceability and rollback readiness.
-	\item Consolidation reduced complexity caused by fragmented repositories.
-\end{itemize}
-
-\textbf{Discussion:} The primary gain is not only speed but reliability under repeated releases. In regulated financial systems, consistent and auditable release behavior is as critical as low deployment latency.
+The modernization and automation of decisioning artifacts provided clear operational improvements. Rule changes became pipeline-driven instead of manually compiled, artifact publication became standardized through Artifactory, versioning improved traceability and rollback readiness, and consolidation reduced complexity caused by fragmented repositories. The primary gain is not only speed but reliability under repeated releases. In regulated financial systems, consistent and auditable release behavior is as critical as low deployment latency.
 
 \section{Results of Stand-in Server Initiative}
 
-The stand-in server initiative established a practical path toward reducing external dependency.
-
-\begin{itemize}
-	\item Internal architecture for fallback decisioning was defined.
-	\item Technology stack decisions were aligned with enterprise compatibility.
-	\item Phased migration strategy reduced operational risk.
-\end{itemize}
-
-\textbf{Discussion:} The largest value is strategic. Even before full replacement, a reliable backup service improves continuity and strengthens operational resilience during third-party outages.
+The stand-in server initiative established a practical path toward reducing external dependency. An internal architecture for fallback decisioning was defined, technology stack decisions were aligned with enterprise compatibility, and a phased migration strategy was established to reduce operational risk. The largest value is strategic. Even before full replacement, a reliable backup service improves continuity and strengthens operational resilience during third-party outages.
 
 \section{Results of Fraud Centralization Pipeline}
 
-The event-driven fraud architecture produced a structured mechanism for cross-team visibility.
-
-\begin{itemize}
-	\item Incoming fraud-check events can be streamed through Kafka.
-	\item Consumers update a centralized repository for blocked and investigation states.
-	\item Post-investigation updates close the lifecycle loop for consistent status tracking.
-\end{itemize}
-
-\textbf{Discussion:} A centralized fraud state reduces risk of contradictory decisions across banking units. This is particularly important in identity theft cases where delayed synchronization can cause severe compliance and financial impact.
+The event-driven fraud architecture produced a structured mechanism for cross-team visibility. Incoming fraud-check events can be streamed through Kafka, consumers update a centralized repository for blocked and investigation states, and post-investigation updates close the lifecycle loop for consistent status tracking. A centralized fraud state reduces risk of contradictory decisions across banking units. This is particularly important in identity theft cases where delayed synchronization can cause severe compliance and financial impact.
 
 \section{Measurable Outcomes Summary}
 
@@ -59,25 +34,11 @@ The event-driven fraud architecture produced a structured mechanism for cross-te
 	\caption{Measurable outcomes framework across internship initiatives.}
 \end{table}
 
-\textbf{Recommended KPI tracking formulas for deployment dashboards:}
-
-\begin{itemize}
-	\item \textbf{Rule Release Lead Time} = \textit{Artifact Published Timestamp} - \textit{Rule Commit Timestamp}
-	\item \textbf{Internal Decision Coverage (\%)} = $\frac{\mbox{Requests served by stand-in}}{\mbox{Total decision requests}} \times 100$
-	\item \textbf{Fraud Propagation Latency} = \textit{Central Repository Update Timestamp} - \textit{Fraud Event Publish Timestamp}
-	\item \textbf{Cross-Team Consistency Rate (\%)} = $\frac{\mbox{Decisions aligned with latest fraud status}}{\mbox{Total evaluated decisions}} \times 100$
-\end{itemize}
+\textbf{Recommended KPI tracking formulas for deployment dashboards:} \textbf{Rule Release Lead Time} is calculated as \textit{Artifact Published Timestamp} minus \textit{Rule Commit Timestamp}. \textbf{Internal Decision Coverage} is computed as the ratio of requests served by the stand-in to total decision requests, expressed as a percentage. \textbf{Fraud Propagation Latency} equals \textit{Central Repository Update Timestamp} minus \textit{Fraud Event Publish Timestamp}. \textbf{Cross-Team Consistency Rate} is the percentage of decisions aligned with the latest fraud status divided by total evaluated decisions.
 
 \section{Limitations and Risks}
 
-Although the outcomes are positive, some limitations remain:
-
-\begin{itemize}
-	\item Pipeline reliability must be maintained to avoid build bottlenecks.
-	\item Stand-in service requires sustained parity verification against existing engines.
-	\item Kafka-based systems require disciplined handling of ordering, retries, and duplicates.
-	\item Data governance is critical for sensitive fraud records and lifecycle retention.
-\end{itemize}
+Although the outcomes are positive, some limitations remain. Pipeline reliability must be maintained to avoid build bottlenecks, the stand-in service requires sustained parity verification against existing engines, Kafka-based systems require disciplined handling of ordering, retries, and duplicates, and data governance is critical for sensitive fraud records and lifecycle retention.
 
 \section{Key Learnings from Discussion}
 

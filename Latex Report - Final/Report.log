@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  27 APR 2026 21:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.18)  29 APR 2026 22:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -583,23 +583,17 @@ Chapter 2.
 
  (D:\FYR\Latex Report - Final\Methodology.tex
 Chapter 3.
-
-Overfull \hbox (1.87877pt too wide) in paragraph at lines 27--28
-[]\OT1/cmr/m/n/12 Validation was car-ried out through ar-chi-tec-ture re-views,
- im-ple-men-ta-tion fea-si-bil-ity checks,
- []
-
 [6
 
 
 
 
 ]
-Overfull \hbox (6.00987pt too wide) in paragraph at lines 42--42
+Overfull \hbox (6.00987pt too wide) in paragraph at lines 17--17
 |[]\OT1/cmr/bx/n/17.28 Method for Work-stream 2: Stand-in Server Strat-
  []
 
-[7]) [8]
+) [7]
 \openout2 = `Implementation.aux'.
 
  (D:\FYR\Latex Report - Final\Implementation.tex
@@ -609,313 +603,303 @@ Overfull \hbox (8.73792pt too wide) in paragraph at lines 5--5
 |[]\OT1/cmr/bx/n/17.28 Workstream 1: Credit De-ci-sion-ing Plat-form Mod-
  []
 
-[9
+[8
 
 
 
 
 ]
-Overfull \hbox (5.34589pt too wide) in paragraph at lines 38--38
+Overfull \hbox (5.34589pt too wide) in paragraph at lines 23--23
 |[]\OT1/cmr/bx/n/17.28 Workstream 2: In-house De-ci-sion Stand-in Server| 
  []
 
-[10]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[11]) [12]
+[9]) [10]
 \openout2 = `ResultsandDiscussion.aux'.
 
  (D:\FYR\Latex Report - Final\ResultsandDiscussion.tex
 Chapter 5.
-[13
+[11
 
 
 
 
 ]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 48.
+(Font)              <10.95> on input line 23.
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--50
+Underfull \hbox (badness 10000) in paragraph at lines 25--25
 []|\OT1/cmr/bx/n/10.95 Baseline Chal-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--50
+Underfull \hbox (badness 10000) in paragraph at lines 25--25
 []|\OT1/cmr/bx/n/10.95 Post-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--50
+Underfull \hbox (badness 10000) in paragraph at lines 25--25
 \OT1/cmr/bx/n/10.95 Implementation
  []
 
 
-Underfull \hbox (badness 2600) in paragraph at lines 50--51
+Underfull \hbox (badness 2600) in paragraph at lines 25--26
 []|\OT1/cmr/bx/n/10.95 Business Im-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--52
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 []|\OT1/cmr/m/n/10.95 Decisioning
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--52
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 []|\OT1/cmr/m/n/10.95 Rule re-lease
  []
 
 
-Underfull \hbox (badness 7963) in paragraph at lines 52--52
+Underfull \hbox (badness 7963) in paragraph at lines 27--27
 \OT1/cmr/m/n/10.95 ual steps per
  []
 
 
-Underfull \hbox (badness 2401) in paragraph at lines 52--52
+Underfull \hbox (badness 2401) in paragraph at lines 27--27
 []|\OT1/cmr/m/n/10.95 Manual rule com-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--52
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 \OT1/cmr/m/n/10.95 pile and pub-lish
  []
 
 
-Underfull \hbox (badness 1917) in paragraph at lines 52--52
+Underfull \hbox (badness 1917) in paragraph at lines 27--27
 \OT1/cmr/m/n/10.95 pro-cess with frag-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--52
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 []|\OT1/cmr/m/n/10.95 Push-triggered
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--52
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 \OT1/cmr/m/n/10.95 au-to-mated com-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--52
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 \OT1/cmr/m/n/10.95 pile and pub-lish
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--52
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 \OT1/cmr/m/n/10.95 path es-tab-lished;
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--52
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 \OT1/cmr/m/n/10.95 ver-sioned \OT1/cmtt/m/n/10.95 .adb
  []
 
 
-Underfull \hbox (badness 2103) in paragraph at lines 52--52
+Underfull \hbox (badness 2103) in paragraph at lines 27--27
 \OT1/cmr/m/n/10.95 ar-ti-facts stored in
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--53
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
 []|\OT1/cmr/m/n/10.95 Faster pol-icy
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--53
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
 \OT1/cmr/m/n/10.95 roll-out and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--53
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
 \OT1/cmr/m/n/10.95 stronger au-dit
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--54
+Underfull \hbox (badness 10000) in paragraph at lines 29--29
 []|\OT1/cmr/m/n/10.95 Stand-in de-ci-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--54
+Underfull \hbox (badness 10000) in paragraph at lines 29--29
 []|\OT1/cmr/m/n/10.95 Internal de-ci-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--54
+Underfull \hbox (badness 10000) in paragraph at lines 29--29
 \OT1/cmr/m/n/10.95 sion cov-er-age
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--54
+Underfull \hbox (badness 10000) in paragraph at lines 29--29
 \OT1/cmr/m/n/10.95 de-pen-dency
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--54
+Underfull \hbox (badness 10000) in paragraph at lines 29--29
 []|\OT1/cmr/m/n/10.95 High ex-ter-nal
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--54
+Underfull \hbox (badness 10000) in paragraph at lines 29--29
 \OT1/cmr/m/n/10.95 de-pen-dency for
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--54
+Underfull \hbox (badness 10000) in paragraph at lines 29--29
 \OT1/cmr/m/n/10.95 cloud/local third-
  []
 
 
-Underfull \hbox (badness 1968) in paragraph at lines 54--54
+Underfull \hbox (badness 1968) in paragraph at lines 29--29
 \OT1/cmr/m/n/10.95 party en-gines and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--54
+Underfull \hbox (badness 10000) in paragraph at lines 29--29
 []|\OT1/cmr/m/n/10.95 In-house backup
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--54
+Underfull \hbox (badness 10000) in paragraph at lines 29--29
 \OT1/cmr/m/n/10.95 (Spring Boot +
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--54
+Underfull \hbox (badness 10000) in paragraph at lines 29--29
 \OT1/cmr/m/n/10.95 Re-act/TS) with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--54
+Underfull \hbox (badness 10000) in paragraph at lines 29--29
 \OT1/cmr/m/n/10.95 phased adop-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--55
+Underfull \hbox (badness 10000) in paragraph at lines 29--30
 []|\OT1/cmr/m/n/10.95 Improved re-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--55
+Underfull \hbox (badness 10000) in paragraph at lines 29--30
 \OT1/cmr/m/n/10.95 and long-term
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--55
+Underfull \hbox (badness 10000) in paragraph at lines 29--30
 \OT1/cmr/m/n/10.95 cost op-ti-miza-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--56
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
 []|\OT1/cmr/m/n/10.95 Fraud cen-tral-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--56
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
 []|\OT1/cmr/m/n/10.95 Fraud state
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--56
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
 \OT1/cmr/m/n/10.95 prop-a-ga-tion
  []
 
 
-Underfull \hbox (badness 3568) in paragraph at lines 56--56
+Underfull \hbox (badness 3568) in paragraph at lines 31--31
 \OT1/cmr/m/n/10.95 la-tency; cross-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--56
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
 \OT1/cmr/m/n/10.95 team con-sis-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--56
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
 \OT1/cmr/m/n/10.95 tency rate;
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--56
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
 \OT1/cmr/m/n/10.95 stale-status
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--56
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
 []|\OT1/cmr/m/n/10.95 No uni-fied
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--56
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
 \OT1/cmr/m/n/10.95 repos-i-tory for
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--56
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
 \OT1/cmr/m/n/10.95 blocked/under-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--56
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
 []|\OT1/cmr/m/n/10.95 Kafka producer-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--56
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
 \OT1/cmr/m/n/10.95 cen-tral repos-i-
  []
 
 
-Underfull \hbox (badness 4416) in paragraph at lines 56--56
+Underfull \hbox (badness 4416) in paragraph at lines 31--31
 \OT1/cmr/m/n/10.95 tory up-dates and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--56
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
 \OT1/cmr/m/n/10.95 life-cy-cle sta-tus
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--56
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
 \OT1/cmr/m/n/10.95 syn-chro-niza-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--57
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
 []|\OT1/cmr/m/n/10.95 Faster fraud
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--57
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
 \OT1/cmr/m/n/10.95 re-sponse and
  []
 
 
-Overfull \hbox (30.69579pt too wide) in paragraph at lines 48--59
+Overfull \hbox (30.69579pt too wide) in paragraph at lines 23--34
  [][] 
  []
 
-[14]
-Overfull \hbox (13.76561pt too wide) in paragraph at lines 68--69
-[]\OT1/cmr/bx/n/12 Cross-Team Con-sis-tency Rate (%) \OT1/cmr/m/n/12 = $[] \OMS
-/cmsy/m/n/12 ^^B
- []
-
-) [15]
+[12]) [13]
 \openout2 = `ConclusionsandFutureWorks.aux'.
 
  (D:\FYR\Latex Report - Final\ConclusionsandFutureWorks.tex
 Chapter 6.
-[16
+[14
 
 
 
 
-]) [17]
+]) [15]
 \openout2 = `Bibliography.aux'.
 
- (D:\FYR\Latex Report - Final\Bibliography.tex) [18
+ (D:\FYR\Latex Report - Final\Bibliography.tex) [16
 
 
 
@@ -943,19 +927,19 @@ Here is how much of TeX's memory you used:
  42425 multiletter control sequences out of 15000+600000
  636970 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,10n,118p,724b,393s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,10n,118p,839b,393s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Vatsal\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcr
 m1200.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:
 /Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fil
 es/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fon
 ts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmti12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pf
-b><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on "D:\FYR\Latex Report - Final\Report.pdf" (26 pages, 221662 by
+ic/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmtt10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pf
+b>
+Output written on "D:\FYR\Latex Report - Final\Report.pdf" (24 pages, 211358 by
 tes).
 PDF statistics:
- 137 PDF objects out of 1000 (max. 8388607)
+ 125 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

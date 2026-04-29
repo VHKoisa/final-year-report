@@ -14,37 +14,17 @@ As part of modernization, utility repositories were merged into a central codeba
 
 \subsection{Automated Rule Build Pipeline}
 
-A CI-triggered build workflow was introduced with the following logic:
-
-\begin{enumerate}
-	\item Rule changes are committed and pushed.
-	\item Pipeline trigger starts automatic compilation.
-	\item Rules are compiled into deployable \texttt{.adb} artifacts.
-	\item Artifacts are validated and prepared for publishing.
-\end{enumerate}
-
-This transformed a manual operational step into a repeatable machine-driven process.
+A CI-triggered build workflow was introduced with the following logic: rule changes are committed and pushed, the pipeline trigger starts automatic compilation, rules are compiled into deployable \texttt{.adb} artifacts, and artifacts are validated and prepared for publishing. This transformed a manual operational step into a repeatable machine-driven process.
 
 \subsection{Artifact Publishing and Versioning}
 
-Compiled artifacts are published to Artifactory with controlled versioning. Versioning provides:
-
-\begin{itemize}
-	\item Historical traceability of deployed rule packages.
-	\item Rollback capability in case of regression.
-	\item Clear mapping between code revision and artifact revision.
-\end{itemize}
+Compiled artifacts are published to Artifactory with controlled versioning. Versioning provides historical traceability of deployed rule packages, rollback capability in case of regression, and clear mapping between code revision and artifact revision.
 
 \section{Workstream 2: In-house Decision Stand-in Server}
 
 \subsection{Architecture Selection}
 
-A prototype-ready architecture was selected:
-
-\begin{itemize}
-	\item Backend: Java Spring Boot for robust service development and integration.
-	\item Frontend: React + TypeScript for maintainable user-facing interfaces and internal operations tooling.
-\end{itemize}
+A prototype-ready architecture was selected, using Java Spring Boot for robust service development and integration as the backend, and React with TypeScript for maintainable user-facing interfaces and internal operations tooling on the frontend.
 
 \subsection{Operational Role}
 
@@ -52,14 +32,7 @@ The stand-in server is designed as a backup-first component. It can be used when
 
 \subsection{Migration Strategy}
 
-Implementation planning included a phased migration strategy:
-
-\begin{enumerate}
-	\item Enable passive readiness as contingency capability.
-	\item Execute parity testing with third-party decision outcomes.
-	\item Run controlled pilots in selected domains.
-	\item Gradually increase dependency on internal service as confidence grows.
-\end{enumerate}
+Implementation planning included a phased migration strategy: enabling passive readiness as contingency capability, executing parity testing with third-party decision outcomes, running controlled pilots in selected domains, and gradually increasing dependency on internal service as confidence grows.
 
 \section{Workstream 3: Fraud Central Repository with Kafka}
 
@@ -69,26 +42,11 @@ Fraud alerts from identity theft workflows require rapid propagation across bank
 
 \subsection{Event Flow Implementation}
 
-The implemented logical flow is:
-
-\begin{enumerate}
-	\item A fraud-check transaction event is received by upstream systems.
-	\item Kafka producer publishes a standardized event to a topic.
-	\item Spring Boot Kafka listener consumes the event.
-	\item Consumer service writes/updates record in centralized repository.
-	\item Post-investigation status updates are consumed and persisted.
-\end{enumerate}
+The implemented logical flow begins when a fraud-check transaction event is received by upstream systems. A Kafka producer then publishes a standardized event to a topic, which is consumed by a Spring Boot Kafka listener. The consumer service writes or updates the record in the centralized repository, and post-investigation status updates are consumed and persisted to complete the lifecycle.
 
 \subsection{Core Design Considerations}
 
-To ensure production suitability, the implementation design includes:
-
-\begin{itemize}
-	\item Idempotent event handling to limit duplicate-processing effects.
-	\item Retry and dead-letter handling for transient failures.
-	\item Status lifecycle updates to maintain auditable decision history.
-	\item Monitoring hooks for consumer lag and processing health.
-\end{itemize}
+To ensure production suitability, the implementation design includes idempotent event handling to limit duplicate-processing effects, retry and dead-letter handling for transient failures, status lifecycle updates to maintain auditable decision history, and monitoring hooks for consumer lag and processing health.
 
 \section{Technology Stack Summary}
 
