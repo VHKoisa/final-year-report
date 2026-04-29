@@ -1,0 +1,157 @@
+% ---------------------------------------------------------------
+% CHAPTER 2: RELATED WORK
+% ---------------------------------------------------------------
+\chapter{Related Work}
+
+This chapter surveys the technical domain literature that substantiated both 
+principal engineering accomplishments of this internship program: the SkyFox 
+Cinemas comprehensive full-stack implementation and the Robust Event Consumption 
+Framework.
+
+% ---------------------------------------------------------------
+\section{Cinema Ticketing and Seat Reservation Systems}
+
+The field of online reservation platforms has undergone extensive scholarly 
+examination in the context of high-volume concurrent access systems. Established 
+platforms such as BookMyShow and Ticketmaster function according to a 
+\textit{broker architecture} --- acting as intermediaries facilitating connections 
+between end users and cinema operators, emphasizing inventory consolidation, 
+financial transaction processing, and consumer-oriented search capabilities. 
+Classical research on such implementations addresses central technical requirements: 
+mitigation of simultaneous double-booking and oversight of seat reservations 
+during payment completion windows \cite{Bernstein2009}.
+
+These marketplace-oriented platforms, nevertheless, do not directly service the 
+operational requirements of the venue administrator. Administrative responsibilities --- 
+including show rescheduling, movie assignment modifications, event cancellation, 
+or in-person visitor processing --- are excluded from the scope of consumer-facing 
+marketplace architectures and are conventionally managed through independent, often 
+manual, administrative systems.
+
+\textbf{How SkyFox Cinemas differs:} SkyFox has been engineered explicitly from the 
+\textit{venue operator perspective}. Rather than a public-facing reservation marketplace, 
+it functions as an operational control platform. The cinema administrator can specify 
+movie content for given auditoriums and presentation times, alter or terminate scheduled 
+performances, and reassign movie programming for any auditorium --- all accessible through 
+a specialized management API. Moreover, SkyFox delivers \textit{granular visitor tracking}: 
+within a unified reservation, individual patrons can be registered independently. For 
+example, within a seven-seat reservation, the ticketing agent can complete check-in for 
+three patrons at arrival and finalize registration for the remaining four at a later time, 
+preserving individual verification status throughout the data layer. This operational 
+visibility is not present in marketplace designs, which regard bookings as indivisible 
+entities and lack on-site attendance monitoring.
+
+% ---------------------------------------------------------------
+\section{Full-Stack Web Frameworks and REST API Design}
+
+The combination of a Go application server with a React user interface has become a 
+prevalent methodology in modern web system construction. Go's \textit{Gin} framework 
+\cite{Gin2024} facilitates development of efficient application programming interfaces 
+through its minimal overhead and declarative middleware capabilities. React's component-based 
+structure enables specification of user experiences that naturally correspond to 
+structured API payloads.
+
+Database administration tools including \textbf{Flyway} and \textbf{Liquibase} represent 
+sector-standard solutions for managed, reversible data schema versioning in commercial 
+environments. Inside the Go programming community, \textbf{Goose} fulfills an analogous 
+responsibility, furnishing bidirectional schema transformation definitions with ordered 
+release numbering.
+
+\textbf{How SkyFox Cinemas applies these:} SkyFox implements the Gin + React design 
+pattern to manage a realistic operational scenario --- customer seat reservations and 
+theater administrator lifecycle management --- instead of a simplified reference CRUD 
+solution. In contrast to entry-level Go + React instructional projects that typically 
+disregard migration infrastructure, SkyFox incorporates Goose from the outset, mandating 
+industrial-strength database administration from initial sprints. Furthermore, the system 
+incorporates a goCD continuous integration environment via Bitbucket, furnishing a 
+distribution and deployment architecture comparable to professional development organizations 
+and seldom encountered in university-based project work.
+
+% ---------------------------------------------------------------
+\section{Agile Software Delivery}
+
+Agile and Scrum frameworks constitute the predominant operational structure within 
+commercial software development. The Technical Leadership role --- encompassing sprint 
+organization, workload decomposition, code examination, and deployment automation supervision --- 
+is documented as substantially impactful on organizational efficiency and engineering output 
+quality \cite{Schwaber2020}. Specifically within novice or junior-level teams, a consistent 
+technical authority facilitates team member integration, prevents architectural fragmentation, 
+and sustains systematic code organization across delivery cycles.
+
+\textbf{How SkyFox Cinemas applies this:} Unlike conventional campus-based team undertakings 
+where supervisory authority fluctuates or operates informally, SkyFox preserved a consistent 
+Technical Lead designation across all three sprints, deliberately mirroring professional 
+Scrum configurations. This preservation of technical management provided uninterrupted 
+engineering strategy, standardized code assessment criteria throughout the source control 
+platform, and single-point responsibility for architectural integrity across an eleven-person 
+contributor group --- yielding a consolidated, professionally-constructed codebase following 
+completion rather than segregated, marginally-coordinated functions.
+
+% ---------------------------------------------------------------
+\section{Event-Driven Architectures and Fault Tolerance}
+
+Apache Kafka \cite{Kreps2011} constitutes an enterprise-scale distributed event storage 
+system predicated on an sequential, unchanging, segment-partitioned information store. This 
+platform has received broad adoption in banking applications due to its exceptional aggregate 
+throughput and durability assurances. It furnishes \textit{at-least-once} transmission assurance 
+by specification, signifying that consuming processes may get duplicated transmissions following 
+infrastructure interruptions or partition rebalancing. This requirement necessitates 
+\textit{duplicate-resistant} implementation --- a characteristic whereby reprocessing an 
+individual transmission generates no supplementary outcome --- as a realistic manufacturing 
+necessity.
+
+Recovery strategies employed in loosely-coupled computing environments have been extensively 
+documented in literature from Amazon and Google operations research divisions \cite{Google2016}. 
+Non-varying time intervals between attempts introduce the \textit{synchronized retry collapse} 
+condition, whereby entire consumer populations attempt reprocessing simultaneously following 
+shared infrastructure disruption. Geometric progression intervals with randomization 
+($\text{baseDelay} \times 2^{n-1}$ with randomized adjustment) provides the recognized remedy. 
+Message staging zones (DLQs), originally conceptualized by Hohpe and Woolf \cite{Hohpe2003}, 
+redirect communications that surpass reclamation attempt thresholds into a separate data stream 
+for forensic examination, preventing harmful communications from interfering with healthy 
+operation. Prometheus \cite{Prometheus2024} implements the measurement infrastructure enabling 
+perception of such mechanisms in manufacturing settings --- displaying attempt frequencies, 
+staging queue magnitude, and consumer processing lateness.
+
+\textbf{How the Resilient Event Consumer Framework applies these:} These techniques --- 
+reprocessing, duplicate-resistance, message staging, and Prometheus measurement --- constitute 
+well-recognized procedures independently, though typically necessitate custom integration effort 
+by implementing organizations. The proposed framework aggregates all four methodologies into 
+a unitary reusable Go compilation, specifically developed for IDFC FIRST Bank's event-based 
+consuming implementations. Client divisions adopt the packaged functionality without mandated 
+custom implementation of any of these techniques, yielding 87\% test compliance and confirmed 
+complete data retention under transient system disruptions.
+
+% ---------------------------------------------------------------
+\section{Summary}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.5cm]
+  \node[rectangle, fill=idfcblue, text=white, minimum width=12.5cm,
+        minimum height=0.8cm, font=\bfseries, rounded corners=4pt]
+    (title) {Related Work vs.\ This Internship's Contributions};
+  \node[wideblock, below=0.5cm of title, text width=12.2cm,
+        minimum height=1cm] (r1)
+    {\textbf{BookMyShow / Ticketmaster (broker model):} Consumer-facing
+     marketplace, atomic bookings, no operational management
+     $\rightarrow$ SkyFox targets the cinema owner: show scheduling,
+     cancellation, rescheduling, and partial per-seat check-in};
+  \node[wideblock, below=0.4cm of r1, text width=12.2cm,
+        minimum height=1cm] (r2)
+    {\textbf{Gin + React + Goose / Flyway:} Standard full-stack and migration
+     tooling $\rightarrow$ SkyFox applies these in a multi-role operational
+     platform with CI/CD, not a tutorial-grade CRUD app};
+  \node[wideblock, below=0.4cm of r2, text width=12.2cm,
+        minimum height=1cm] (r3)
+    {\textbf{Kafka + AWS/Netflix Retry + DLQ + Prometheus:} Individually
+     well-documented patterns $\rightarrow$ This framework unifies all four
+     into one Go library, eliminating per-team re-implementation};
+  \node[widegreenblock, below=0.4cm of r3, text width=12.2cm,
+        minimum height=1cm] (r4)
+    {\textbf{Net result:} Both contributions apply established patterns in
+     ways that are integrated, production-disciplined, and specific to
+     IDFC FIRST Bank's engineering context};
+\end{tikzpicture}
+\caption{Related Work vs.\ Internship Contributions}
+\end{figure}

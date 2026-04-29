@@ -1,0 +1,115 @@
+% ---------------------------------------------------------------
+% CHAPTER 6: RESULTS AND DISCUSSION
+% ---------------------------------------------------------------
+\chapter{Results and Discussion}
+
+\section{Framework Reliability Outcomes}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.45cm]
+  \node[rectangle, fill=idfcblue, text=white, minimum width=12.5cm,
+        minimum height=0.8cm, font=\bfseries, rounded corners=4pt]
+    (title) {Key Reliability Outcomes};
+  \node[widegreenblock, below=0.4cm of title, text width=12.2cm,
+        minimum height=1cm] (r1)
+    {\textbf{Zero Event Loss:} Momentary data storage failures do not result 
+    in dropped information. Events undergo up to 4 reprocessing trials with 
+    geometrically increasing delays before being routed to message staging};
+  \node[widegreenblock, below=0.4cm of r1, text width=12.2cm,
+        minimum height=1cm] (r2)
+    {\textbf{Duplicate Prevention:} Storage-backed duplicate detection 
+    confirmed zero duplicate records during experimental crash-recovery sequences};
+  \node[widegreenblock, below=0.4cm of r2, text width=12.2cm,
+        minimum height=1cm] (r3)
+    {\textbf{DLQ Recoverability:} Utility replayed 45 of 47 test-environment 
+    message staging information following system restoration};
+  \node[widegreenblock, below=0.4cm of r3, text width=12.2cm,
+        minimum height=1cm] (r4)
+    {\textbf{Test Coverage: 87\%} ---
+      Meets the bank's quality benchmarks and organizational criteria};
+\end{tikzpicture}
+\caption{Key Reliability Outcomes of the Framework}
+\end{figure}
+
+\section{SkyFox Cinemas --- Project Outcomes}
+
+The SkyFox Cinemas initiative successfully produced an sophisticated operational 
+management system for cinema proprietors. The concurrent seat acquisition module 
+efficiently mitigated conflict scenarios across load evaluation, with database 
+isolation guaranteeing individual success per acquisition in parallel-request 
+conditions. Owner-oriented attributes, encompassing secured personnel enrollment 
+progression and detailed individual-level visitor processing, experienced comprehensive 
+integration validation. The ultimate demonstration illustrated that proprietor-directed 
+control interfaces deliver substantially enhanced administrative oversight compared 
+to consumer-marketplace distribution approaches.
+
+\section{Technical Skills Acquired}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.45cm]
+  \node[rectangle, fill=idfcblue, text=white, minimum width=12.5cm,
+        minimum height=0.8cm, font=\bfseries\large, rounded corners=4pt]
+    (title) {Key Technical Skills Acquired During Internship};
+  \node[block, below=0.4cm of title, xshift=-3.2cm,
+        text width=5.5cm, minimum height=1.4cm] (s1)
+    {\textbf{GoLang / Backend}\\Gin, goroutines, channels,
+      concurrency patterns, idiomatic test writing};
+  \node[block, below=0.4cm of title, xshift= 3.2cm,
+        text width=5.5cm, minimum height=1.4cm] (s2)
+    {\textbf{TDD \& Software Craftsmanship}\\Driver-Navigator, Ping-Pong,
+      Red-Green-Refactor discipline};
+  \node[block, below=0.4cm of s1, text width=5.5cm, minimum height=1.4cm] (s3)
+    {\textbf{Frontend (React JS)}\\Component architecture,
+      state management, REST API integration};
+  \node[block, below=0.4cm of s2, text width=5.5cm, minimum height=1.4cm] (s4)
+    {\textbf{Database Engineering}\\PostgreSQL, Goose migrations,
+      schema versioning, row-level locking};
+  \node[block, below=0.4cm of s3, text width=5.5cm, minimum height=1.4cm] (s5)
+    {\textbf{Distributed Systems}\\Kafka, consumer groups,
+      offset management, DLQ patterns};
+  \node[block, below=0.4cm of s4, text width=5.5cm, minimum height=1.4cm] (s6)
+    {\textbf{Infrastructure \& Observability}\\Redis, Prometheus,
+      Grafana, structured JSON logging, Docker};
+\end{tikzpicture}
+\caption{Key Technical Skills Acquired}
+\end{figure}
+
+\section{Challenges Faced}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.45cm]
+  \node[rectangle, fill=idfcblue, text=white, minimum width=12.5cm,
+        minimum height=0.8cm, font=\bfseries, rounded corners=4pt]
+    (title) {Challenges Faced and Resolutions};
+  \node[wideredblock, below=0.4cm of title, text width=12.2cm,
+        minimum height=1.1cm] (c1)
+    {\textbf{Mastering a Novel Programming Language} --- As GoLang constituted 
+    an unfamiliar platform, the preliminary proficiency acquisition proved demanding, 
+    notably in comprehending its tradition-based exception handling and parallel processing 
+    abstractions.
+      \hfill\textcolor{greenborder}{Resolution: Structured mentoring sessions and 
+      systematic TDD refinement work cycles}};
+  \node[wideredblock, below=0.4cm of c1, text width=12.2cm,
+        minimum height=1.1cm] (c2)
+    {\textbf{Balancing Mutual Exclusion with Performance} --- Preserving strict 
+    per-record locking for bookings while circumventing substantial performance 
+    degradation.
+      \hfill\textcolor{greenborder}{Resolution: Optimized transaction parameters 
+      and created targeted repository lookups for seat status inquiries}};
+  \node[wideredblock, below=0.4cm of c2, text width=12.2cm,
+        minimum height=1.1cm] (c3)
+    {\textbf{Balancing Authority with Production} --- Managing assignments 
+    for eleven participants while sustaining individual engineering accomplishments.
+      \hfill\textcolor{greenborder}{Resolution: Organized recurring collaborative 
+      meetings and engaged colleagues in technical code examination responsibility}};
+  \node[wideredblock, below=0.4cm of c3, text width=12.2cm,
+        minimum height=1.1cm] (c4)
+    {\textbf{Cross-Component Synchronization} --- Sustaining message staging 
+    repository and transmission offsets in coordination amid system interruptions.
+      \hfill\textcolor{greenborder}{Resolution: Executed an ordered, conditional 
+      tracking pattern with deliberate offset acknowledgement sequencing}};
+\end{tikzpicture}
+\caption{Challenges Faced and Resolutions}
+\end{figure}

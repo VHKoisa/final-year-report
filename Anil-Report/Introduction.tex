@@ -1,0 +1,117 @@
+% ---------------------------------------------------------------
+% CHAPTER 1: INTRODUCTION
+% ---------------------------------------------------------------
+\chapter{Introduction}
+
+IDFC FIRST Bank is pursuing an ambitious strategic vision centered on becoming a 
+cutting-edge ``technology-driven'' organization, emphasizing digital transformation 
+and robust engineering methodologies to revolutionize consumer banking services. 
+To realize this objective, the bank is committed to nurturing a cohort of software 
+engineers proficient in designing, developing, and operating production-ready systems 
+across all layers --- including distributed microservices infrastructure, high-volume 
+data processing systems, user-facing applications, and agile team frameworks.
+
+This document presents findings from an Application Engineer Internship completed at 
+\textbf{IDFC FIRST Bank}, conducted across two cities: Hyderabad (January through March 
+2026) and Chennai (April through June 2026). The program included pedagogical training 
+in engineering fundamentals, a cross-functional collaborative development initiative, 
+and an autonomous engineering project tackling a legitimate operational challenge 
+within the bank's event-driven service infrastructure.
+
+\section{About IDFC FIRST Bank}
+
+IDFC FIRST Bank was formed in December 2018 following the consolidation of IDFC Bank 
+and Capital First Limited. It serves as a contemporary private financial institution 
+concentrating on consumer finance and financial accessibility, with global headquarters 
+at One World Centre in Mumbai. The organization maintains public listings on both the 
+Bombay Stock Exchange (ticker: IDFCFIRSTB) and the National Stock Exchange of India.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.45cm]
+  \node[rectangle, fill=idfcblue, text=white, minimum width=12.5cm,
+        minimum height=0.8cm, font=\bfseries\large, rounded corners=4pt]
+    (title) {IDFC FIRST Bank --- Key Facts at a Glance};
+  \node[block, below=0.4cm of title, xshift=-3.2cm, text width=5.5cm] (f1)
+    {Founded: December 2018};
+  \node[block, below=0.4cm of title, xshift= 3.2cm, text width=5.5cm] (f2)
+    {Listed: BSE (IDFCFIRSTB) \& NSE};
+  \node[block, below=0.4cm of f1, text width=5.5cm] (f3)
+    {Employees: 37,000+};
+  \node[block, below=0.4cm of f2, text width=5.5cm] (f4)
+    {Branches Pan-India: 900+};
+  \node[block, below=0.4cm of f3, text width=5.5cm] (f5)
+    {Customers: 30 million+};
+  \node[block, below=0.4cm of f4, text width=5.5cm] (f6)
+    {Total Deposits: Rs.\ 2.3 Lakh Crore+};
+  \node[greenblock, below=0.4cm of f5, text width=5.5cm] (f7)
+    {Core Focus: Retail Banking \& Financial Inclusion};
+  \node[greenblock, below=0.4cm of f6, text width=5.5cm] (f8)
+    {HQ: One World Centre, Mumbai};
+  \node[wideyellowblock, below=0.9cm of f7, xshift=3.2cm,
+        text width=12.2cm] (f9)
+    {Philosophy: Customer-First, Transparent \& Digital-First Banking};
+\end{tikzpicture}
+\caption{IDFC FIRST Bank --- Key Statistics}
+\end{figure}
+
+\section{Internship Overview}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.45cm]
+  \node[rectangle, fill=idfcblue, text=white, minimum width=12.5cm,
+        minimum height=0.8cm, font=\bfseries\large, rounded corners=4pt]
+    (title) {Internship at a Glance};
+  \node[block, below=0.4cm of title, xshift=-3.2cm, text width=5.5cm] (r1)
+    {Role: Application Engineer Intern};
+  \node[block, below=0.4cm of title, xshift= 3.2cm, text width=5.5cm] (r2)
+    {Organisation: IDFC FIRST Bank};
+  \node[block, below=0.4cm of r1, text width=5.5cm] (r3)
+    {Duration: 27 Jan 2026 --- June 2026};
+  \node[block, below=0.4cm of r2, text width=5.5cm] (r4)
+    {Department: Web Development};
+  \node[block, below=0.4cm of r3, text width=5.5cm] (r5)
+    {Location: Hyderabad (Feb--Mar) / Chennai (Apr--Jun)};
+\end{tikzpicture}
+\caption{Internship Details}
+\end{figure}
+
+\section{Motivation}
+
+Present-day financial institutions require software engineering solutions characterized 
+by resilience, measurability, and accelerated deployment timelines. Satisfying these 
+imperatives demands engineers possessing expertise spanning the entire technology stack --- 
+including concurrent backend systems, cross-functional agile team leadership, and resolution 
+of platform-level reliability impediments that manifest during live operations. This internship 
+initiative was deliberately organized to cultivate precisely this versatility: core competency 
+building in Go programming, a comprehensive full-stack project implementation, and a 
+self-directed undertaking focused on solving a concrete fault-tolerance vulnerability 
+within one of the bank's message-oriented solutions. The assignment scope and technical 
+requirements were determined by authentic organizational needs rather than predetermined scope.
+
+\section{Our Contribution}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.5cm]
+  \node[rectangle, fill=idfcblue, text=white, minimum width=12.5cm,
+        minimum height=0.8cm, font=\bfseries, rounded corners=4pt]
+    (title) {Three Pillars of Contribution};
+  \node[wideblock, below=0.5cm of title, text width=12.2cm,
+        minimum height=1cm] (c1)
+    {\textbf{Pillar 1 --- DOJO Training:}
+      GoLang, concurrency, Gin framework, TDD, Docker};
+  \node[widegreenblock, below=0.4cm of c1, text width=12.2cm,
+        minimum height=1cm] (c2)
+    {\textbf{Pillar 2 --- SkyFox Cinemas:}
+      Full-stack Agile project simulation (Tech Lead, 3 sprints, 11-member team)};
+  \node[widepurpleblock, below=0.4cm of c2, text width=12.2cm,
+        minimum height=1cm] (c3)
+    {\textbf{Pillar 3 --- Resilient Event Consumer Framework:}
+      Production-grade GoLang library for Kafka fault tolerance
+      (87\% coverage, zero event loss)};
+\end{tikzpicture}
+\caption{Three Pillars of Internship Contribution}
+\end{figure}
+

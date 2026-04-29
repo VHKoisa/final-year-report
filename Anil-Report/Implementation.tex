@@ -1,0 +1,470 @@
+% ---------------------------------------------------------------
+% CHAPTER 4: PROJECT SIMULATION: SKYFOX CINEMAS
+% ---------------------------------------------------------------
+\chapter{Project Simulation: SkyFox Cinemas}
+
+\section{Project Overview}
+
+\textit{SkyFox Cinemas} constitutes a comprehensive internal operational and 
+reservation management system engineered explicitly for cinema operators. Contrasting 
+with third-party marketplace mediators, SkyFox delivers enterprise resource management 
+capabilities, furnishing proprietors with unrestricted command of resources, operational 
+schedules, and personnel administration. The system was constructed through \textbf{three 
+sequential Agile delivery iterations} (seven-day cycles) executed by a multidisciplinary 
+cohort of eleven interns. The author facilitated technology oversight (\textbf{Tech Lead (TL)}) 
+throughout all iterations.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.45cm]
+  \node[rectangle, fill=idfcblue, text=white, minimum width=12.5cm,
+        minimum height=0.8cm, font=\bfseries\large, rounded corners=4pt]
+    (title) {SkyFox Cinemas --- Project Blueprint};
+  \node[block, below=0.4cm of title, xshift=-3.2cm, text width=5.5cm] (p1)
+    {Platform: Internal Cinema ERP \& Booking System};
+  \node[block, below=0.4cm of title, xshift= 3.2cm, text width=5.5cm] (p2)
+    {Team Size: 11 Interns};
+  \node[block, below=0.4cm of p1, text width=5.5cm] (p3)
+    {Methodology: Agile/Scrum (3 $\times$ 1-week sprints)};
+  \node[block, below=0.4cm of p2, text width=5.5cm] (p4)
+    {Author's Role: Tech Lead (all 3 sprints)};
+  \node[block, below=0.4cm of p3, text width=5.5cm] (p5)
+    {Backend: GoLang + Gin Framework + Goose Migrations};
+  \node[block, below=0.4cm of p4, text width=5.5cm] (p6)
+    {Frontend: React JS};
+  \node[block, below=0.4cm of p5, text width=5.5cm] (p7)
+    {Database: PostgreSQL};
+  \node[block, below=0.4cm of p6, text width=5.5cm] (p8)
+    {DevOps: Bitbucket + CI/CD Pipelines};
+\end{tikzpicture}
+\caption{SkyFox Cinemas --- Project Details}
+\end{figure}
+
+\section{Sprint Breakdown}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.5cm and 0.8cm]
+  % Sprint 1
+  \node[rectangle, fill=idfcblue!80, text=white, rounded corners=4pt,
+        minimum width=3.6cm, minimum height=0.7cm, font=\bfseries\small]
+    (s1h) {SPRINT 1 --- Week 1};
+  \node[block, below=0.3cm of s1h, minimum width=3.6cm,
+        text width=3.4cm, font=\footnotesize, minimum height=1.8cm] (s1b)
+    {Project setup, DB schema design, movie listing API, React scaffolding};
+  % Sprint 2
+  \node[rectangle, fill=idfcblue!80, text=white, rounded corners=4pt,
+        minimum width=3.6cm, minimum height=0.7cm, font=\bfseries\small,
+        right=0.85cm of s1h] (s2h) {SPRINT 2 --- Week 2};
+  \node[block, below=0.3cm of s2h, minimum width=3.6cm,
+        text width=3.4cm, font=\footnotesize, minimum height=1.8cm] (s2b)
+    {Seat selection UI, booking API with concurrency handling, RBAC system};
+  % Sprint 3
+  \node[rectangle, fill=idfcblue!80, text=white, rounded corners=4pt,
+        minimum width=3.6cm, minimum height=0.7cm, font=\bfseries\small,
+        right=0.85cm of s2h] (s3h) {SPRINT 3 --- Week 3};
+  \node[block, below=0.3cm of s3h, minimum width=3.6cm,
+        text width=3.4cm, font=\footnotesize, minimum height=1.8cm] (s3b)
+    {Partial check-in logic, Admin control APIs, DB migrations via Goose, presentation};
+  \draw[arrow] (s1b.east) -- (s2b.west);
+  \draw[arrow] (s2b.east) -- (s3b.west);
+\end{tikzpicture}
+\caption{SkyFox Cinemas --- Agile Sprint Breakdown}
+\end{figure}
+
+\section{Technical Contributions}
+
+\subsection{Concurrent Seat Booking System}
+
+The seat reservation subsystem was engineered to accommodate high-volume competing 
+attempts where simultaneous customers endeavor to acquire the same seating. The 
+implementation employed PostgreSQL transaction isolation (\texttt{SELECT FOR UPDATE}) 
+contained within a transactional boundary. This reservation method guaranteed that 
+database records were exclusively controlled throughout transaction operation, 
+prohibiting simultaneous acquisitions and confirming single-success-only booking 
+confirmation.
+
+\subsection{Role-Based Access Control (RBAC) \& Secure Onboarding}
+To maintain operational safety, I established a tiered RBAC composition. The arrangement 
+encompasses:
+\begin{itemize}
+    \item \textbf{Authority Distribution:} The Owner manages Admin profile generation with 
+    restricted authorization levels, facilitating secure responsibility allocation.
+    \item \textbf{Initial Access Protocol:} Novel Admins receive momentary login information. 
+    A database indicator (\texttt{is\_first\_login}) activates mandatory security phrase 
+    modification, confirming that machine-assigned temporary access tokens are promptly changed.
+\end{itemize}
+
+\subsection{Owner-Centric Schedule Management}
+A significant architectural differentiator in SkyFox constitutes the operational 
+authority distributed to cinema administrators. I engineered an Administration Interface 
+facilitating:
+\begin{itemize}
+    \item \textbf{Movie Assignment Modification:} Altering the content scheduled for 
+    particular time slots to enhance monetization per performance metrics.
+    \item \textbf{Reschedule/Termination Capabilities:} Transferring existing appointments 
+    or terminating presentations with concurrent status alteration, encompassing contention 
+    resolution logic to guarantee auditorium accessibility.
+\end{itemize}
+
+\subsection{Granular Partial Check-In}
+To handle pragmatic group reservation conditions, I constructed a "Granular Check-In" 
+capability. This permits a sales assistant to finalize individual attendees from a 
+collective reservation (e.g., finalizing 3 guests from a ten-seat allocation) with 
+unaddressed participants keeping "Awaiting" classification. This delivers the proprietor 
+with granular, present occupancy intelligence.
+
+\subsection{Database Migrations with Goose}
+Database structure adjustments, encompassing intricate relationship definitions for 
+per-attendee enrollment and \texttt{users} table modifications for authorization levels, 
+were overseen via \textbf{Goose}. This approach guaranteed database architecture remained 
+version-managed and synchronized among all development systems.
+
+\section{Tech Lead Responsibilities}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.45cm]
+  \node[rectangle, fill=idfcblue, text=white, minimum width=12.5cm,
+        minimum height=0.8cm, font=\bfseries, rounded corners=4pt]
+    (title) {Tech Lead Responsibilities Across 3 Sprints};
+  \node[block, below=0.4cm of title, xshift=-3.2cm,
+        text width=5.5cm, minimum height=1.1cm] (tl1)
+    {\textbf{Sprint Planning}\\Translating owner requirements into technical tasks};
+  \node[block, below=0.4cm of title, xshift= 3.2cm,
+        text width=5.5cm, minimum height=1.1cm] (tl2)
+    {\textbf{Security Architecture}\\Designing the RBAC and secure onboarding logic};
+  \node[block, below=0.4cm of tl1,
+        text width=5.5cm, minimum height=1.1cm] (tl3)
+    {\textbf{Code Quality}\\Conducting code reviews to ensure secure credential handling};
+  \node[block, below=0.4cm of tl2,
+        text width=5.5cm, minimum height=1.1cm] (tl4)
+    {\textbf{System Integration}\\Ensuring frontend-backend parity for the Admin dashboard};
+\end{tikzpicture}
+\caption{Tech Lead Responsibilities in SkyFox Cinemas}
+\end{figure}
+
+% ---------------------------------------------------------------
+% CHAPTER 5: RESILIENT EVENT CONSUMER FRAMEWORK
+% ---------------------------------------------------------------
+\chapter{Resilient Event Consumer Framework}
+
+\section{Problem Context}
+
+IDFC FIRST Bank's distributed service architecture deploys Apache Kafka as its principal 
+information stream architecture. Multiple microservices transmit categorized information --- 
+authentication events, financial operations, customer verification updates --- consumed by 
+subsequent processing services, encompassing the Event Record Writer, which documents 
+information into PostgreSQL conforming to RBI directives.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.6cm]
+  \node[medblock] (c) {Consume Event from Kafka};
+  \node[medblock, below=of c] (t)
+    {Attempt DB Write to PostgreSQL};
+  \node[decision, below=of t] (d) {Write\\Successful?};
+  \node[greenblock, minimum width=3.8cm,
+        below left=0.8cm and 0.5cm of d] (ok)
+    {Offset Committed\\$\rightarrow$ Done};
+  \node[redblock, minimum width=3.8cm,
+        below right=0.8cm and 0.5cm of d] (err)
+    {Log Error\\$\rightarrow$ Move On};
+  \node[redblock, minimum width=3.8cm, below=0.5cm of err,
+        draw=redborder, fill=redbg!60] (lost)
+    {\textbf{EVENT LOST}\\(Permanent \& Unrecoverable)};
+  \draw[arrow] (c) -- (t);
+  \draw[arrow] (t) -- (d);
+  \draw[arrow] (d.west) -|
+    node[above left, font=\footnotesize\bfseries, text=greenborder]{Yes}
+    (ok.north);
+  \draw[arrow] (d.east) -|
+    node[above right, font=\footnotesize\bfseries, text=redborder]{No}
+    (err.north);
+  \draw[arrow] (err) -- (lost);
+\end{tikzpicture}
+\caption{Legacy Consumer --- Critical Reliability Gap}
+\end{figure}
+
+\section{Design Goals}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.45cm]
+  \node[widepurpleblock, text width=12.2cm] (g1)
+    {\textbf{Goal 1 --- Zero Event Loss:}
+     No information records eliminated during momentary service disruptions};
+  \node[widepurpleblock, below=of g1, text width=12.2cm] (g2)
+    {\textbf{Goal 2 --- Duplicate Prevention:}
+     Duplicate-safe handling conforming to Kafka's minimum-once guarantee};
+  \node[widepurpleblock, below=of g2, text width=12.2cm] (g3)
+    {\textbf{Goal 3 --- Recoverability:}
+     Information surpassing reprocessing maximums is maintained and restartable};
+  \node[widepurpleblock, below=of g3, text width=12.2cm] (g4)
+    {\textbf{Goal 4 --- Observability:}
+     Standardized logs and Prometheus indicators for all fault modes};
+  \node[widepurpleblock, below=of g4, text width=12.2cm] (g5)
+    {\textbf{Goal 5 --- Reusability:}
+     Available as a package applicable to any event-oriented service at the bank};
+\end{tikzpicture}
+\caption{Framework Design Goals}
+\end{figure}
+
+\section{System Architecture}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.6cm]
+  \node[medblock] (k) {Kafka Event Delivery};
+  \node[medblock, below=of k] (i)
+    {Idempotency Check (Redis TTL Store)};
+  \node[decision, below=of i] (seen) {Already\\Seen?};
+  \node[yellowblock, minimum width=4cm,
+        below right=0.8cm and 0.3cm of seen] (skip)
+    {Skip Silently\\(Duplicate Prevented)};
+  \node[medblock, minimum width=4cm,
+        below left=0.8cm and 0.3cm of seen] (retry)
+    {Retry Engine\\(Exponential Backoff + Jitter)};
+  \node[decision, below=0.7cm of retry] (success) {Processed\\OK?};
+  \node[greenblock, minimum width=3.8cm,
+        below left=0.8cm and 0.2cm of success] (commit)
+    {DB Write $\rightarrow$\\Offset Commit};
+  \node[redblock, minimum width=3.8cm,
+        below right=0.8cm and 0.2cm of success] (dlq)
+    {DLQ Publisher\\$\rightarrow$ PagerDuty Alert};
+  \node[yellowblock, minimum width=3.8cm, below=0.5cm of dlq] (replay)
+    {DLQ Replayer CLI\\(On Demand)};
+  \draw[arrow] (k) -- (i);
+  \draw[arrow] (i) -- (seen);
+  \draw[arrow] (seen.east) -|
+    node[above right, font=\footnotesize\bfseries]{Yes} (skip.north);
+  \draw[arrow] (seen.west) -|
+    node[above left, font=\footnotesize\bfseries]{No} (retry.north);
+  \draw[arrow] (retry) -- (success);
+  \draw[arrow] (success.west) -|
+    node[above left, font=\footnotesize\bfseries, text=greenborder]{Yes}
+    (commit.north);
+  \draw[arrow] (success.east) -|
+    node[above right, font=\footnotesize\bfseries, text=redborder]{Exhausted}
+    (dlq.north);
+  \draw[arrow] (dlq) -- (replay);
+\end{tikzpicture}
+\caption{Resilient Event Consumer Framework --- End-to-End Architecture}
+\end{figure}
+
+\section{Component 1: Core Retry Engine}
+
+\subsection{Failure Classification}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.6cm]
+  \node[medblock] (in) {Incoming Processing Failure};
+  \node[decision, below=0.5cm of in] (d) {Failure\\Type?};
+  \node[redblock, minimum width=4.8cm, text width=4.6cm,
+        below left=0.8cm and 1.5cm of d] (trans)
+    {\textbf{Transient}\\DB timeout, network blip,\\connection pool exhausted};
+  \node[yellowblock, minimum width=4.8cm, text width=4.6cm,
+        below right=0.8cm and 1.5cm of d] (perm)
+    {\textbf{Permanent}\\Malformed event,\\schema mismatch, invalid payload};
+  \node[block, minimum width=4.8cm, below=0.5cm of trans] (ret)
+    {Retry: Exponential Backoff\\+ Jitter};
+  \node[redblock, minimum width=4.8cm, below=0.5cm of perm] (dlq2)
+    {Skip Retries $\rightarrow$ DLQ Directly};
+  \draw[arrow] (in) -- (d);
+  \draw[arrow] (d.west) -| (trans.north);
+  \draw[arrow] (d.east) -| (perm.north);
+  \draw[arrow] (trans) -- (ret);
+  \draw[arrow] (perm) -- (dlq2);
+\end{tikzpicture}
+\caption{Failure Classification in the Retry Engine}
+\end{figure}
+
+\subsection{Exponential Backoff with Jitter}
+
+Constant-rate reprocessing generates a \textit{coordinated spike} condition at scale. The 
+computational formula employed is:
+\begin{equation}
+  \text{delay}_n = \min\!\left(\text{baseDelay} \times 2^{n-1}
+  + \text{random}(0,\, \text{jitter}),\ \text{maxDelay}\right)
+\end{equation}
+The randomization component desynchronizes reprocessing surges among distributed consumers 
+--- the recognized convention implemented by Amazon infrastructure, Google cloud utilities, 
+and Netflix fault-tolerance technologies.
+
+\begin{lstlisting}[language=bash, caption={Retry Engine Configuration}]
+RETRY_MAX_ATTEMPTS=4
+RETRY_BASE_DELAY_MS=2000
+RETRY_MAX_DELAY_MS=30000
+RETRY_JITTER_MS=500
+\end{lstlisting}
+
+\section{Component 2: Redis-Backed Idempotency Store}
+
+Kafka delivers minimum-once transmission assurance. When a consuming process terminates 
+post-transmission preservation yet preceding message tracking acknowledgment, renewed 
+delivery manifests, producing replicated records. The architecture implements Redis-based 
+duplicate elimination.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.6cm]
+  \node[medblock] (arrive) {Event Arrives from Kafka};
+  \node[medblock, below=of arrive] (check)
+    {Check Redis: Key = \texttt{audit:processed:\{event\_id\}}};
+  \node[decision, below=of check] (d) {Key\\Exists?};
+  \node[yellowblock, minimum width=4cm,
+        below right=0.8cm and 0.3cm of d] (skip2)
+    {Skip Silently\\(Duplicate Prevented)};
+  \node[medblock, minimum width=4cm,
+        below left=0.8cm and 0.3cm of d] (proc)
+    {Process Event\\$\rightarrow$ Write to PostgreSQL};
+  \node[greenblock, minimum width=4cm, below=0.5cm of proc] (store)
+    {Store Key in Redis\\(TTL: 24 hours)};
+  \node[greenblock, minimum width=4cm, below=0.5cm of store] (commit2)
+    {Commit Kafka Offset};
+  \draw[arrow] (arrive) -- (check);
+  \draw[arrow] (check) -- (d);
+  \draw[arrow] (d.east) -|
+    node[above right, font=\footnotesize\bfseries]{Yes} (skip2.north);
+  \draw[arrow] (d.west) -|
+    node[above left, font=\footnotesize\bfseries]{No} (proc.north);
+  \draw[arrow] (proc) -- (store);
+  \draw[arrow] (store) -- (commit2);
+\end{tikzpicture}
+\caption{Redis-Backed Idempotency Store --- Processing Flow}
+\end{figure}
+
+Redis was chosen rather than database queries due to nanosecond-range ($\sim$0.1ms) 
+instantaneous lookup response, programmed expiration-based automatic cleanup, and minimal 
+supplemental workload upon the operational database.
+
+\section{Component 3: DLQ Publisher and Replayer CLI}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.6cm]
+  \node[wideredblock] (exhaust)
+    {Retry Engine Exhausted --- All 4 Attempts Failed};
+  \node[wideblock, below=of exhaust] (enrich)
+    {Enrich Event with Metadata:
+     failure\_reason, attempt\_count, timestamps, consumer\_id};
+  \node[wideblock, below=of enrich] (pub)
+    {Publish to Kafka Topic: \texttt{audit.events.dlq}};
+  \node[wideyellowblock, below=of pub] (alert)
+    {Dispatch PagerDuty + Slack Alert to On-Call Engineer};
+  \draw[arrow] (exhaust) -- (enrich);
+  \draw[arrow] (enrich) -- (pub);
+  \draw[arrow] (pub) -- (alert);
+\end{tikzpicture}
+\caption{DLQ Publisher --- Enrichment and Alerting Flow}
+\end{figure}
+
+A standalone GoLang utility application permits operations staff to replay information from 
+the dead-letter repository on-demand once the underlying problem is corrected.
+
+\begin{lstlisting}[language=bash, caption={DLQ Replayer CLI --- Sample Usage}]
+$ audit-replayer --topic audit.events.dlq \
+                 --from "2026-04-25T10:00:00Z"
+[INFO] Found 47 events in DLQ
+[INFO] Replaying... 47/47
+[OK]   Successfully reprocessed: 45
+[WARN] Still failing: 2  (written to replay-failures.json)
+\end{lstlisting}
+
+\section{Component 4: Observability Layer}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.5cm]
+  \node[rectangle, fill=idfcblue, text=white, minimum width=12.5cm,
+        minimum height=0.8cm, font=\bfseries, rounded corners=4pt]
+    (title) {Observability Layer --- Two Pillars};
+  \node[block, below=0.5cm of title, xshift=-3.2cm,
+        text width=5.5cm, minimum height=2.5cm] (log)
+    {\textbf{Structured JSON Logging}\\[4pt]
+     \footnotesize Fields: timestamp, level, event\_id,\\
+     attempt, error, retry\_in\_ms, consumer\_id\\[4pt]
+     $\rightarrow$ Ingested by Splunk / ELK / Datadog};
+  \node[block, below=0.5cm of title, xshift= 3.2cm,
+        text width=5.5cm, minimum height=2.5cm] (prom)
+    {\textbf{Prometheus \texttt{/metrics} Endpoint}\\[4pt]
+     \footnotesize events\_processed (success/failed)\\
+     retry\_attempts\_total per level\\
+     dlq\_published\_total\\
+     p99 processing latency (ms)\\[4pt]
+     $\rightarrow$ Grafana Dashboards + Auto-Alerts};
+  \node[greenblock, below=0.5cm of log, text width=5.5cm] (g1)
+    {Spike in \texttt{dlq\_published\_total}\\triggers PagerDuty before SLA breach};
+  \node[greenblock, below=0.5cm of prom, text width=5.5cm] (g2)
+    {Machine-parseable; filterable\\by event\_id or consumer\_id};
+\end{tikzpicture}
+\caption{Observability Layer --- Structured Logging and Prometheus Metrics}
+\end{figure}
+
+\section{Component 5: Configuration Management}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.6cm]
+  \node[wideblock, text width=12.2cm] (env)
+    {Load ALL Config from Environment Variables at Startup\\
+    (Kafka broker, topics, consumer group, DB host, Redis URL, retry params)};
+  \node[wideblock, below=of env, text width=12.2cm] (val)
+    {Startup Validation: Ping Kafka Broker, PostgreSQL, Redis};
+  \node[decision, below=of val] (ok3) {All Checks\\Pass?};
+  \node[greenblock, minimum width=4.2cm,
+        below left=0.8cm and 1.2cm of ok3] (start)
+    {Service Starts Normally};
+  \node[redblock, minimum width=4.2cm,
+        below right=0.8cm and 1.2cm of ok3] (abort)
+    {Startup ABORTED\\(Prevents Silent Misconfiguration)};
+  \draw[arrow] (env) -- (val);
+  \draw[arrow] (val) -- (ok3);
+  \draw[arrow] (ok3.west) -|
+    node[above left, font=\footnotesize\bfseries, text=greenborder]{Yes}
+    (start.north);
+  \draw[arrow] (ok3.east) -|
+    node[above right, font=\footnotesize\bfseries, text=redborder]{No}
+    (abort.north);
+\end{tikzpicture}
+\caption{Configuration Management --- Startup Validation Flow}
+\end{figure}
+
+\section{Component 6: Testing Strategy}
+
+\subsection{Unit Tests}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.4cm]
+  \node[rectangle, fill=idfcblue, text=white, minimum width=12.5cm,
+        minimum height=0.7cm, font=\bfseries, rounded corners=4pt]
+    (title) {Unit Test Suite --- Key Test Cases};
+  \node[widegreenblock, below=0.35cm of title, text width=12.2cm,
+        font=\footnotesize] (t1)
+    {\texttt{TestRetryEngine\_TransientFailure\_RetriesCorrectly}
+     --- Engine retries on transient errors up to max attempts};
+  \node[widegreenblock, below=0.3cm of t1, text width=12.2cm,
+        font=\footnotesize] (t2)
+    {\texttt{TestRetryEngine\_PermanentFailure\_SkipsToDLQ}
+     --- Engine bypasses retries for permanent failures};
+  \node[widegreenblock, below=0.3cm of t2, text width=12.2cm,
+        font=\footnotesize] (t3)
+    {\texttt{TestRetryEngine\_ExponentialBackoff\_DelayDoubles}
+     --- Delay doubles each attempt within configured bounds};
+  \node[widegreenblock, below=0.3cm of t3, text width=12.2cm,
+        font=\footnotesize] (t4)
+    {\texttt{TestIdempotencyStore\_DuplicateEvent\_Skipped}
+     --- Second occurrence of same event\_id is silently skipped};
+  \node[widegreenblock, below=0.3cm of t4, text width=12.2cm,
+        font=\footnotesize] (t5)
+    {\texttt{TestDLQPublisher\_ExhaustedRetries\_PublishesToDLQ}
+     --- Event reaches DLQ topic after max retry attempts};
+  \node[widegreenblock, below=0.3cm of t5, text width=12.2cm,
+        font=\footnotesize] (t6)
+    {\texttt{TestConfig\_MissingEnvVar\_StartupFails}
+     --- Service refuses to boot when required config is absent};
+\end{tikzpicture}
+\caption{Unit Test Coverage --- Key Test Cases}
+\end{figure}

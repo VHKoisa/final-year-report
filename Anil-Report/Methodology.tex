@@ -1,0 +1,172 @@
+% ---------------------------------------------------------------
+% CHAPTER 3: DOJO TRAINING PHASE
+% ---------------------------------------------------------------
+\chapter{Training Phase: DOJO Learning}
+
+\section{Overview}
+
+The program commenced with a structured pedagogical curriculum administered by 
+seasoned technical mentors. The initiative targeted advancement of idiomatic, 
+comprehensively validated GoLang implementations satisfying predefined specifications 
+with maximized test case protection. Beyond Go language mastery, the curriculum 
+introduced client-side development methodologies using React, foundational cloud 
+infrastructure understanding, and emerging machine learning capabilities --- 
+delivering comprehensive technical preparation preceding project-based work.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.6cm]
+  \node[stepblock] (step1) {STEP 1: GoLang Fundamentals};
+  \node[stepblock, below=of step1] (step2)
+    {STEP 2: Concurrency --- Goroutines \& Channels};
+  \node[stepblock, below=of step2] (step3)
+    {STEP 3: Gin Web Framework \& RESTful APIs};
+  \node[stepblock, below=of step3] (step4)
+    {STEP 4: TDD --- Driver-Navigator \& Ping-Pong Pairing};
+  \node[stepblock, below=of step4] (step5)
+    {STEP 5: Docker --- Containerisation \& Image Management};
+  \node[stepblock, below=of step5] (step6)
+    {STEP 6: React --- Frontend Development};
+  \node[stepblock, below=of step6] (step7)
+    {STEP 7: Cloud Computing Fundamentals};
+  \node[stepblock, below=of step7] (step8)
+    {STEP 8: AI/ML --- Transformers, RAG \& Fine-Tuning};
+  \node[widegreenblock, below=of step8] (done)
+    {OUTPUT: Full-Stack Engineering Foundation with 80\%+ Test Coverage};
+  \draw[arrow] (step1) -- (step2);
+  \draw[arrow] (step2) -- (step3);
+  \draw[arrow] (step3) -- (step4);
+  \draw[arrow] (step4) -- (step5);
+  \draw[arrow] (step5) -- (step6);
+  \draw[arrow] (step6) -- (step7);
+  \draw[arrow] (step7) -- (step8);
+  \draw[arrow] (step8) -- (done);
+\end{tikzpicture}
+\caption{DOJO Learning Phase --- Progression Flow}
+\end{figure}
+
+\section{Key Learning Areas}
+
+\subsection{GoLang Fundamentals}
+
+Fundamental GoLang principles studied encompassed primitive data representations, 
+program flow direction, type systems, concurrent execution units, communication structures, 
+and idiomatic exception management utilizing the \texttt{error} interface. Emphasis 
+was positioned on authoring Go source utilizing official language specifications 
+and established idioms as published in the Effective-Go publication.
+
+\subsection{Concurrency Patterns}
+
+GoLang's concurrent processing architecture --- established on Communicating Sequential 
+Processes conventions --- received instruction via pragmatic demonstrations with concurrent 
+execution units and information exchange conduits. This theoretical knowledge demonstrated 
+importance when constructing competing reservation processing in SkyFox Cinemas and 
+establishing the multi-subscriber recovery solution.
+
+\subsection{Gin Web Framework}
+
+The Gin HTTP foundation was employed to produce economical application programming interfaces. 
+Navigation definition, middleware arrangement, JSON payload handling, information validation, 
+and formalized error management design inside Gin received comprehensive examination.
+
+\subsection{Test-Driven Development (TDD)}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.5cm]
+
+  % ---- Left column: Driver-Navigator ----
+  \node[rectangle, fill=idfcblue, text=white, minimum width=5.5cm,
+        minimum height=0.7cm, font=\bfseries\small, rounded corners=3pt]
+    (dn_title) {Driver-Navigator Pairing};
+  \node[block, below=0.4cm of dn_title, text width=5.2cm] (dn1)
+    {Navigator designs the approach \& guides};
+  \node[block, below=0.4cm of dn1, text width=5.2cm] (dn2)
+    {Driver implements the code};
+  \node[yellowblock, below=0.4cm of dn2, text width=5.2cm] (dn3)
+    {Roles swap every 10--15 minutes};
+
+  % ---- Right column: Ping-Pong ----
+  \node[rectangle, fill=idfcblue, text=white, minimum width=5.5cm,
+        minimum height=0.7cm, font=\bfseries\small, rounded corners=3pt,
+        right=1.0cm of dn_title]
+    (pp_title) {Ping-Pong Pairing};
+  \node[block, below=0.4cm of pp_title, text width=5.2cm] (pp1)
+    {Person A writes a \textbf{failing} test (Red)};
+  \node[greenblock, below=0.4cm of pp1, text width=5.2cm] (pp2)
+    {Person B makes the test \textbf{pass} (Green)};
+  \node[yellowblock, below=0.4cm of pp2, text width=5.2cm] (pp3)
+    {Refactor $\rightarrow$ swap roles $\rightarrow$ repeat};
+
+  % ---- Arrows ----
+  \draw[arrow] (dn1) -- (dn2);
+  \draw[arrow] (dn2) -- (dn3);
+  \draw[arrow] (pp1) -- (pp2);
+  \draw[arrow] (pp2) -- (pp3);
+
+\end{tikzpicture}
+\caption{TDD Methodologies: Driver-Navigator vs.\ Ping-Pong Pairing}
+\end{figure}
+\subsection{Docker Basics}
+
+An overview of containerization employing Docker technology was furnished, examining 
+image construction specifications, hierarchical storage structures, operational lifecycle 
+administration, information persistence approaches, and variable injection mechanisms --- 
+establishing readiness for downstream deployment automation work.
+
+\subsection{React and Frontend Development}
+
+Frontend implementation methodologies received instruction utilizing React framework, 
+analyzing component-driven structural patterns, information handling via function-based 
+storage, and consumption of data transfer protocols originating from Go service providers. 
+This foundation immediately supported the SkyFox Cinemas program, facilitating development 
+of patron engagement environments and administrative oversight dashboard using React.
+
+\subsection{Cloud Computing}
+
+An introduction to distributed cloud delivery infrastructure was presented, including 
+provisioning approaches (Infrastructure services, Platform services, Application services), 
+packaged execution environments, and cloud-compatible solution topology. This discussion 
+contextualized how commercial financial platforms are provisioned and expanded at IDFC 
+FIRST Bank.
+
+\subsection{AI and Machine Learning Concepts}
+
+The DOJO similarly addressed contemporary artificial intelligence methodologies relevant 
+to software production environments. Subject matter contained the Attention architecture 
+fundamental to generative language systems, Documentation-Informed Content Production 
+for constraining outputs with institutional information, and parameter fine-tuning for 
+application-specific implementations. This education developed consciousness regarding 
+the incorporation of AI capabilities into contemporary monetary and technology sector 
+manufacturing platforms.
+
+\section{DOJO Outcomes}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.45cm]
+  \node[rectangle, fill=idfcblue, text=white, minimum width=12.5cm,
+        minimum height=0.8cm, font=\bfseries, rounded corners=4pt]
+    (title) {Skills Acquired and Their Application};
+  \node[wideblock, below=0.5cm of title, text width=12.2cm,
+        minimum height=1cm] (o1)
+    {\textbf{GoLang + Gin + TDD:} Applied directly in SkyFox Cinemas backend
+     and the Resilient Event Consumer Framework};
+  \node[wideblock, below=0.4cm of o1, text width=12.2cm,
+        minimum height=1cm] (o2)
+    {\textbf{Concurrency:} Goroutine patterns used in concurrent seat booking
+     and multi-consumer event processing};
+  \node[wideblock, below=0.4cm of o2, text width=12.2cm,
+        minimum height=1cm] (o3)
+    {\textbf{React:} Used to build the SkyFox Cinemas customer and
+     administrator UI across three sprints};
+  \node[wideblock, below=0.4cm of o3, text width=12.2cm,
+        minimum height=1cm] (o4)
+    {\textbf{Docker + Cloud:} Informed CI/CD pipeline design and
+     containerised service deployment on goCD};
+  \node[widegreenblock, below=0.4cm of o4, text width=12.2cm,
+        minimum height=1cm] (o5)
+    {\textbf{AI/ML:} Provided foundational awareness of Transformer, RAG,
+     and fine-tuning patterns used in enterprise AI integration};
+\end{tikzpicture}
+\caption{DOJO Training --- Skills and Their Application}
+\end{figure}

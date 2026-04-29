@@ -1,0 +1,151 @@
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{tocloft}
+% Line spacing
+\onehalfspacing
+\usepackage{tikz}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\setlength{\parindent}{0pt}
+\usepackage{lipsum}
+
+% TOC dots
+\renewcommand{\cftdot}{.}
+\renewcommand{\cftdotsep}{2}
+\renewcommand{\cftchapdotsep}{\cftdotsep}
+\renewcommand{\contentsname}{Table of Contents}
+
+% Chapter / section formatting
+\titleformat{\chapter}[display]
+{\raggedright\bfseries\Huge\fontsize{28pt}{28.8pt}}
+{\fontsize{75pt}{28.8pt}\thechapter}
+{5pt}{}[]
+
+\titleformat*{\section}{\Large\bfseries}
+\titleformat*{\subsection}{\large\bfseries}
+\titleformat*{\subsubsection}{\normalsize\bfseries}
+
+\setlength{\cftbeforechapskip}{1.5em}
+\setlength{\cftbeforesecskip}{0.8em}
+\setlength{\cftbeforesubsecskip}{0.5em}
+
+% ===== EXTRA PACKAGES =====
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{parskip}
+\usepackage{float}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{multirow}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, fit, backgrounds,
+  calc, shapes.multipart, shadows}
+
+% ===== COLOURS =====
+\definecolor{idfcblue}{RGB}{0, 71, 140}
+\definecolor{idfclightblue}{RGB}{0, 120, 215}
+\definecolor{codegray}{RGB}{245,245,245}
+\definecolor{codegreen}{RGB}{0,128,0}
+\definecolor{boxbg}{RGB}{230,240,255}
+\definecolor{arrowcol}{RGB}{0,100,180}
+\definecolor{stepbg}{RGB}{240,248,255}
+\definecolor{stepborder}{RGB}{0,71,140}
+\definecolor{greenbg}{RGB}{220,245,220}
+\definecolor{greenborder}{RGB}{0,120,60}
+\definecolor{redbg}{RGB}{255,235,235}
+\definecolor{redborder}{RGB}{180,0,0}
+\definecolor{yellowbg}{RGB}{255,250,220}
+\definecolor{yellowborder}{RGB}{180,140,0}
+\definecolor{purplebg}{RGB}{245,230,255}
+\definecolor{purpleborder}{RGB}{100,0,150}
+
+% ===== TIKZ STYLES =====
+\tikzstyle{block} = [rectangle, rounded corners=4pt, minimum width=5.8cm,
+    minimum height=0.9cm, align=center, text centered, draw=stepborder,
+    fill=stepbg, font=\small\bfseries, text=idfcblue, drop shadow]
+\tikzstyle{wideblock} = [rectangle, rounded corners=4pt, minimum width=12.5cm,
+    minimum height=0.9cm, align=center, text centered, draw=stepborder,
+    fill=stepbg, font=\small\bfseries, text=idfcblue, drop shadow]
+\tikzstyle{medblock} = [rectangle, rounded corners=4pt, minimum width=10cm,
+    minimum height=0.9cm, align=center, text centered, draw=stepborder,
+    fill=stepbg, font=\small\bfseries, text=idfcblue, drop shadow]
+\tikzstyle{stepblock} = [rectangle, rounded corners=4pt, minimum width=9cm,
+    minimum height=0.9cm, align=center, text centered, draw=stepborder,
+    fill=stepbg, font=\small\bfseries, text=idfcblue, drop shadow]
+\tikzstyle{greenblock} = [rectangle, rounded corners=4pt, minimum width=5.8cm,
+    minimum height=0.9cm, align=center, text centered, draw=greenborder,
+    fill=greenbg, font=\small\bfseries, text=black, drop shadow]
+\tikzstyle{widegreenblock} = [rectangle, rounded corners=4pt, minimum width=12.5cm,
+    minimum height=0.9cm, align=center, text centered, draw=greenborder,
+    fill=greenbg, font=\small\bfseries, text=black, drop shadow]
+\tikzstyle{redblock} = [rectangle, rounded corners=4pt, minimum width=5.8cm,
+    minimum height=0.9cm, align=center, text centered, draw=redborder,
+    fill=redbg, font=\small\bfseries, text=redborder, drop shadow]
+\tikzstyle{wideredblock} = [rectangle, rounded corners=4pt, minimum width=12.5cm,
+    minimum height=0.9cm, align=center, text centered, draw=redborder,
+    fill=redbg, font=\small\bfseries, text=redborder, drop shadow]
+\tikzstyle{yellowblock} = [rectangle, rounded corners=4pt, minimum width=5.8cm,
+    minimum height=0.9cm, align=center, text centered, draw=yellowborder,
+    fill=yellowbg, font=\small\bfseries, text=black, drop shadow]
+\tikzstyle{wideyellowblock} = [rectangle, rounded corners=4pt, minimum width=12.5cm,
+    minimum height=0.9cm, align=center, text centered, draw=yellowborder,
+    fill=yellowbg, font=\small\bfseries, text=black, drop shadow]
+\tikzstyle{purpleblock} = [rectangle, rounded corners=4pt, minimum width=5.8cm,
+    minimum height=0.9cm, align=center, text centered, draw=purpleborder,
+    fill=purplebg, font=\small\bfseries, text=purpleborder, drop shadow]
+\tikzstyle{widepurpleblock} = [rectangle, rounded corners=4pt, minimum width=12.5cm,
+    minimum height=0.9cm, align=center, text centered, draw=purpleborder,
+    fill=purplebg, font=\small\bfseries, text=purpleborder, drop shadow]
+\tikzstyle{arrow} = [-{Stealth[length=6pt]}, thick, color=arrowcol]
+\tikzstyle{dasharrow} = [-{Stealth[length=6pt]}, thick, dashed, color=arrowcol]
+\tikzstyle{decision} = [diamond, aspect=2.5, minimum width=3.5cm,
+    minimum height=1cm, align=center, text centered, draw=stepborder,
+    fill=boxbg, font=\small\bfseries, text=idfcblue]
+
+% Helper: blue title banner for diagrams
+\newcommand{\diagramtitle}[2][12.5cm]{%
+  \node[rectangle, fill=idfcblue, text=white, minimum width=#1,
+        minimum height=0.8cm, font=\bfseries\large, rounded corners=4pt]
+    (title) {#2};%
+}
+
+% ===== LISTINGS =====
+\lstdefinestyle{gostyle}{
+  backgroundcolor=\color{codegray},
+  commentstyle=\color{codegreen},
+  keywordstyle=\color{idfcblue}\bfseries,
+  numberstyle=\tiny\color{gray},
+  stringstyle=\color{redborder},
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true, captionpos=b, keepspaces=true,
+  numbers=left, numbersep=5pt,
+  frame=single, rulecolor=\color{gray!40},
+  xleftmargin=10pt, xrightmargin=5pt, tabsize=2
+}
+\lstset{style=gostyle}
+
+% ===== HYPERREF =====
+\hypersetup{
+  colorlinks=true, linkcolor=idfcblue,
+  urlcolor=idfclightblue, citecolor=idfcblue,
+  pdftitle={Internship Report - Prajapati Anilkumar Mangilal},
+  pdfauthor={Prajapati Anilkumar Mangilal}
+}
+
+% ===== HEADER/FOOTER =====
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{gray}Internship Report --- Prajapati Anilkumar Mangilal}
+\fancyhead[R]{\small\color{gray}IDFC FIRST Bank}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}

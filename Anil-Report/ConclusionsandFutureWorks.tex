@@ -1,0 +1,89 @@
+% ---------------------------------------------------------------
+% CHAPTER 7: CONCLUSIONS AND FUTURE WORKS
+% ---------------------------------------------------------------
+\chapter{Conclusions and Future Works}
+
+\section{Conclusion}
+
+This internship experience at IDFC FIRST Bank delivered an extensive, professional-grade 
+computing engineering journey spanning all dimensions of contemporary cloud-based systems 
+advancement. The structured pedagogical curriculum furnished comprehensive competencies in 
+GoLang, examination-first programming, and quality source crafting. The SkyFox Cinemas 
+iterative assignment furnished pragmatic experience in technology administration, 
+interdisciplinary coordination, and incremental deployment under authentic time limitations.
+
+The principal accomplishment encompasses the autonomous development and establishment of the 
+\textbf{Robust Event Consumption Framework} --- a manufacturing-prepared GoLang utility that 
+directly remedied a regulatory obligation in the bank's message stream-oriented service 
+infrastructure. The framework's constituent subsystems --- reprocessing with geometric pause 
+intervals and randomization, storage-mediated duplicate elimination, messaging zone distribution 
+with incident management, utility-based information recovery, indicator compilation 
+compatibility, and adaptable settings parameter --- combined accomplish complete data retention 
+during brief system disruptions, 82\% evaluation protection, and library-style construction 
+prepared for universal distribution via any information-oriented service at the bank.
+
+The internship continues through June 2026. Remaining intervals are directed toward completion 
+of in-progress SkyFox capabilities and targeted framework improvements realizable within the 
+available calendar.
+
+\section{Ongoing Work (May -- June 2026)}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.45cm]
+  \node[rectangle, fill=idfcblue, text=white, minimum width=12.5cm,
+        minimum height=0.8cm, font=\bfseries, rounded corners=4pt]
+    (title) {Ongoing Work Plan --- May to June 2026};
+  \node[widepurpleblock, below=0.4cm of title, text width=12.2cm,
+        minimum height=1.1cm] (o1)
+    {\textbf{Framework: Per-Topic Prometheus Metric Labels} ---
+     Categorize currently present measurements and data series with Kafka transmitting 
+     categorization and subscriber designation for individual-contributor measurement 
+     without supplementary application programming};
+  \node[widepurpleblock, below=0.4cm of o1, text width=12.2cm,
+        minimum height=1.1cm] (o2)
+    {\textbf{Framework: DLQ Replay Dry-Run Mode} ---
+     Append a \texttt{--dry-run} parameter to the restorer utility facilitating technical 
+     personnel to examine information prior to approving a mass-quantity restoration};
+\end{tikzpicture}
+\caption{Ongoing Work Plan (May -- June 2026)}
+\end{figure}
+\section{Future Works}
+
+\subsection{Production Deployment and Environment Promotion}
+The Robust Event Consumption Framework has received total construction, verification, and 
+confirmation in a personal development context utilizing containerized transmission and data 
+storage. The immediate subsequent phase is environmental advancement --- placement within 
+the bank's examination context for synchronization verification towards genuine transmission 
+structures, accompanied by supervised manufacturing initialization under technology 
+operations direction. This encompasses creation of startup procedures, encrypted credential 
+administration via Secrets management, and deployment robotics for programmatic assembly 
+and readiness verification.
+
+\subsection{Grafana SLO Dashboard}
+The Prometheus measurements mandated for an operational metrics display --- ninety-ninth 
+quantile information handling latency, message staging distribution percentage, reprocessing 
+quantity distribution, and transmission handling lag --- are presently being maintained by 
+the framework. The organic next activity encompasses constructing a monitoring screen that 
+contrasts these opposing the bank's 99.9\% availability mandate, furnishing the critical 
+procedures personnel a consolidated functional perspective of processing health spanning 
+all implementations consuming the utilities.
+
+\subsection{Kubernetes Deployment with Auto-Scaling}
+The framework presently operates as a Docker deployment unit and underwent validation 
+regionally employing Docker multi-container management. A scheduled improvement focuses on 
+container orchestration positioning and customization of Pod Multiplication driven by 
+transmission handling workload metrics via orchestration activation (Kubernetes Event-Driven 
+Autoscaling). This capability would facilitate the consuming infrastructure to proportionally 
+expand throughout peak transaction circumstances and proportionally contract throughout 
+low-activity seasons, minimizing equipment provisioning without programmed management.
+
+\subsection{OpenTelemetry Distributed Tracing}
+The contemporary perceivability composition encompasses Prometheus measurement collection and 
+formatted written records yet lacks distributed performance examination. Integrating the 
+framework with telemetry abstraction (W3C Distribution Context specifications) would furnish 
+end-to-end performance observation through the foundational transmission generator via the 
+reprocessing mechanism to the ultimate following composition. This capability would accelerate 
+performance disruption investigation across service perimeters substantially and constitutes a 
+standard complement to the existent Prometheus coupling presently operational.
+
